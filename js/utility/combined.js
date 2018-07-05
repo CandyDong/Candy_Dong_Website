@@ -29,17 +29,26 @@ document.addEventListener("DOMContentLoaded", function () {
             var title_text = page_title.querySelector('h1');
             var title_pic = document.querySelector('.detail_title_pic');
             var arrow_button_right = document.querySelector('#arrow_button_right');
+            var color_circle = document.querySelector('.detail_main_circle');
+            var main_display = document.querySelector('.detail_main_display');
+            var detail_content = document.querySelector('.detail_content');
+            
+            //need generalization 
+            var prev_color = 'rgba(255, 123, 0, 1)';
+            var this_color = 'rgba(255, 129, 98)';
+            
             
             var tl = new TimelineMax();
             tl.add("start");
             tl.to(arrow_button_left, 0.2, {left: 350, top: 450, width: 100, height: 100}, "start")
               .to(page_title, 0.2, {left: 150, top: 380}, "start")
               .to(title_text, 0.2, {fontSize: '5em'}, "start")
-              .to(title_pic, 0.3, {width: 0, opacity: 0}, "start");
-            
+              .to(title_pic, 0.2, {width: 0, opacity: 0}, "start")
+              .from(arrow_button_right, 0.2, {left: '100vw'}, "start+=0.1")
+              .to(arrow_button_right, 0.2, {autoAlpha: 1}, "start+=0.1");
             tl.add("fade");
-            tl.from(arrow_button_right, 0.2, {left: 100vw}, "fade")
-              .to(arrow_button_right, 0.2, {autoAlpha: 1}, "fade")
+            tl.from(main_display, 0.3, {right: 0}, "fade")
+              .from(color_circle, 0.3, {opacity: 0.5, left: 500}, "fade+=0.1");
         }
     }
     
@@ -92,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         else if (etarget.classList.contains('arrow_button') ||
                  etarget.classList.contains('svg_icon')) {
             var arrow_path = etarget.querySelector('path');
-            tweenButtonTo(etarget, arrow_path, 'mouseover','#fff', 1.1);
+            tweenButtonTo(etarget, arrow_path, '#fff', 1.1);
         }
         return;
     });
@@ -114,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (etarget.classList.contains('arrow_button')) {
             var arrow_path = etarget.querySelector('path');
-            tweenButtonTo(etarget, arrow_path, 'mouseout', 'rgba(255, 255, 255, 0.9)', 1);
+            tweenButtonTo(etarget, arrow_path, 'rgba(255, 255, 255, 0.9)', 1);
         }
         return;
     });
@@ -135,23 +144,13 @@ document.addEventListener("DOMContentLoaded", function () {
         TweenLite.to(target, 0.3, {clipPath: 'circle(' + radius + 'px at ' + xCoord + '% ' + yCoord + '%)'});
     };
     
-    var tweenButtonTo = function (target, path, eventType, fillColor, scaleRatio) {
+    var tweenButtonTo = function (target, path, fillColor, scaleRatio) {
         var tl = new TimelineMax();
         var opacityValue = (scaleRatio > 1) ? 0.8 : 1;
-        var detail_pic = document.querySelector('.detail_title_pic');
-        var classChange;
-        
-        if (eventType == "mouseout") {
-            classChange = "-=tween_detail_pic";
-        }
-        else {
-            classChange = "+=tween_detail_pic";
-        }
-        
+       
         tl.add("start");
         tl.to(path, 0.5, {fill: fillColor}, "start")
-          .to(target, 0.5, {scale: scaleRatio, opacity: opacityValue}, "start")
-          .to(detail_pic, 1, {className: classChange}, "start");
+          .to(target, 0.5, {scale: scaleRatio, opacity: opacityValue}, "start");
     }
     
     var CoverMaskTransition = Barba.BaseTransition.extend({
@@ -253,14 +252,14 @@ document.addEventListener("DOMContentLoaded", function () {
             tl.to(header, 1, {opacity: 0}, "start+=0.2")
               .to(home_button, 0.5, {opacity: 0, scale: 0}, "start")
               .to(arrow, 0.5, {fill: "#171616"}, "start")
-              .to(arrow_button, 1, {left: 0, opacity: 0}, "start+=0.5")
+              .to(this.oldContainer, 1, {opacity: 0}, "start+=0.3")
 //              .set(arrow_button, {transformOrigin: "50% 50% 0", scale:1}, "start")
 //              .to(arrow_button, 1, {scale: 20, opacity: 0})
               .to(this.newContainer, 1, {opacity: 1});
             
             tl.add("next");
             tl.from(title, 1, {opacity: 1}, "next")
-              .from(title_text, 1.5, {left: '100vw', opacity: 0, ease: Back.easeOut}, "next")
+              .from(title_text, 1.5, {top: '100vh', opacity: 0, ease: Back.easeOut}, "next")
               .from(sub_title, 1, {opacity: 0},"next+=1");
             
             tl.add("final");
