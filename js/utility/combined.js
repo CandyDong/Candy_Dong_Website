@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .to(arrow_button_right, 0.2, {autoAlpha: 1}, "start+=0.1");
             tl.add("fade");
             tl.from(main_display, 0.3, {right: 0}, "fade")
-              .from(color_circle, 0.3, {opacity: 0.5, left: 500}, "fade+=0.1");
+              .from(color_circle, 0.3, {opacity: 0.5, left: 500}, "fade");
         }
     }
     
