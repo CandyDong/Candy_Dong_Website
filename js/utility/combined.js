@@ -6,15 +6,42 @@ document.addEventListener("DOMContentLoaded", function () {
         var etarget = e.target;
         //get current window location
         var curPage = window.location.href.split('/').pop();
-        if (!curPage.includes('preloader')) {
-            return;
+        if (curPage.includes('preloader')) {
+            if (etarget.classList.contains('nav_toggle') || 
+                etarget.classList.contains('nav_toggle_icon')) {
+                toggleNavBar(etarget);
+            }
         }
-        if (etarget.classList.contains('nav_toggle') || 
-            etarget.classList.contains('nav_toggle_icon')) {
-            toggleNavBar(etarget);
+        else if (curPage.includes('design')) {
+            if (etarget.classList.contains('arrow_button') ||
+                etarget.classList.contains('svg_icon')) {
+                animateDetail(curPage);
+            }
         }
+        
         else {return; }
     });
+    
+    var animateDetail = function (curPage) {
+        if (curPage.includes('design')) {
+            var arrow_button_left = document.querySelector('#arrow_button_left');
+            var page_title = document.querySelector('.detail_title_text');
+            var title_text = page_title.querySelector('h1');
+            var title_pic = document.querySelector('.detail_title_pic');
+            var arrow_button_right = document.querySelector('#arrow_button_right');
+            
+            var tl = new TimelineMax();
+            tl.add("start");
+            tl.to(arrow_button_left, 0.2, {left: 350, top: 450, width: 100, height: 100}, "start")
+              .to(page_title, 0.2, {left: 150, top: 380}, "start")
+              .to(title_text, 0.2, {fontSize: '5em'}, "start")
+              .to(title_pic, 0.3, {width: 0, opacity: 0}, "start");
+            
+            tl.add("fade");
+            tl.from(arrow_button_right, 0.2, {left: 100vw}, "fade")
+              .to(arrow_button_right, 0.2, {autoAlpha: 1}, "fade")
+        }
+    }
     
 //    navbar toggle handler
     var toggleNavBar = function (target) {
@@ -62,9 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (etarget.classList.contains('mask')){ 
             tweenMaskTo(etarget, 350);
         }
-        else if (etarget.classList.contains('arrow_button')) {
+        else if (etarget.classList.contains('arrow_button') ||
+                 etarget.classList.contains('svg_icon')) {
             var arrow_path = etarget.querySelector('path');
-            tweenButtonTo(etarget, arrow_path, '#fff', 1.1);
+            tweenButtonTo(etarget, arrow_path, 'mouseover','#fff', 1.1);
         }
         return;
     });
@@ -86,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (etarget.classList.contains('arrow_button')) {
             var arrow_path = etarget.querySelector('path');
-            tweenButtonTo(etarget, arrow_path, 'rgba(255, 255, 255, 0.9)', 1);
+            tweenButtonTo(etarget, arrow_path, 'mouseout', 'rgba(255, 255, 255, 0.9)', 1);
         }
         return;
     });
@@ -104,17 +132,26 @@ document.addEventListener("DOMContentLoaded", function () {
             yCoord = '55';
         }
         
-        TweenLite.to(target, 0.3, {clipPath: 'circle(' + radius + 'px at ' + xCoord + '% ' + yCoord + 
-                                   '%)'});
+        TweenLite.to(target, 0.3, {clipPath: 'circle(' + radius + 'px at ' + xCoord + '% ' + yCoord + '%)'});
     };
     
-    var tweenButtonTo = function (target, path, fillColor, scaleRatio) {
+    var tweenButtonTo = function (target, path, eventType, fillColor, scaleRatio) {
         var tl = new TimelineMax();
         var opacityValue = (scaleRatio > 1) ? 0.8 : 1;
+        var detail_pic = document.querySelector('.detail_title_pic');
+        var classChange;
+        
+        if (eventType == "mouseout") {
+            classChange = "-=tween_detail_pic";
+        }
+        else {
+            classChange = "+=tween_detail_pic";
+        }
         
         tl.add("start");
         tl.to(path, 0.5, {fill: fillColor}, "start")
-          .to(target, 0.5, {scale: scaleRatio, opacity: opacityValue}, "start");
+          .to(target, 0.5, {scale: scaleRatio, opacity: opacityValue}, "start")
+          .to(detail_pic, 1, {className: classChange}, "start");
     }
     
     var CoverMaskTransition = Barba.BaseTransition.extend({
@@ -186,14 +223,15 @@ document.addEventListener("DOMContentLoaded", function () {
             var _this = this;
             var tl = new TimelineMax({
                 onComplete: function () {
-                    //_this.newContainer.style.position = 'static';
+                    _this.newContainer.style.position = 'static';
                     _this.done();
                     isAnimatingDetail = false;
                 }
             });
             
-            var arrow_button = this.oldContainer.querySelector('.nav_home_button a');
-            var arrow = this.oldContainer.querySelector('.nav_home_button .arrow_button path');
+            var home_button = this.oldContainer.querySelector('.home_logo_button');
+            var arrow_button = this.oldContainer.querySelector('.detail_button #arrow_button_left');
+            var arrow = this.oldContainer.querySelector('.detail_button #arrow_button_left path');
             var header = this.oldContainer.querySelector('.detail_title');
             var title = this.newContainer.querySelector('.title_container .logo');
             var title_text = this.newContainer.querySelector('.title_container .logo_text');
@@ -213,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             tl.add("start");
             tl.to(header, 1, {opacity: 0}, "start+=0.2")
+              .to(home_button, 0.5, {opacity: 0, scale: 0}, "start")
               .to(arrow, 0.5, {fill: "#171616"}, "start")
               .to(arrow_button, 1, {left: 0, opacity: 0}, "start+=0.5")
 //              .set(arrow_button, {transformOrigin: "50% 50% 0", scale:1}, "start")
@@ -222,10 +261,10 @@ document.addEventListener("DOMContentLoaded", function () {
             tl.add("next");
             tl.from(title, 1, {opacity: 1}, "next")
               .from(title_text, 1.5, {left: '100vw', opacity: 0, ease: Back.easeOut}, "next")
-              .from(sub_title, 0.8, {opacity: 0},"next+=1");
+              .from(sub_title, 1, {opacity: 0},"next+=1");
             
             tl.add("final");
-            tl.from(scroll_bar, 1, {opacity: 0, top: '100vh'}, "final")
+            tl.from(scroll_bar, 1, {opacity: 0, bottom: '-20vh'}, "final")
               .from(scroll_text, 1, {opacity: 0}, "final+=0.8");
         },
         
@@ -255,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var _this = this;
             var tl = new TimelineMax({
                 onComplete: function () {
-                    //_this.newContainer.style.position = 'static';
+                    _this.newContainer.style.position = 'static';
                     _this.done();
                     isAnimatingPreload = false;
                 }
