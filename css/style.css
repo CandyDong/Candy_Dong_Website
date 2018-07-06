@@ -394,7 +394,7 @@ body {
 }
 
 .content #mask_1 {
-    background-image: url(../img/design/Screen%20Shot%202018-04-18%20at%208.42.50%20PM.png);
+    background-image: url(../img/design/listen.png);
     clip-path: circle(300px at 55% 50%);
 }
 
@@ -459,6 +459,32 @@ body {
 
 
 /*Detail Page Style Sheet*/
+.home_logo_button:before,
+.home_logo_button:hover:before {
+    -webkit-transform: none;
+    transform: none;
+}
+
+.home_logo_button:before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(-4.97159vw + -14.09px);
+    right: 0;
+    width: calc(4.97159vw + 4.09px);
+    height: 1px;
+    opacity: 0.4;
+    background-color: #171616; 
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+}
 
 .home_logo_button {
     text-decoration: none;
@@ -470,32 +496,24 @@ body {
 }
 
 .home_logo_button > div {
-    font-family: "Vesper Libre", sans-serif;
-    font-weight: 700;
-    font-size: 2em;
+    font-family: "Dosis", sans-serif;
+    font-weight: 200;
+    font-size: 1.1em;
     text-align: left;
     line-height: 0.8;
-    color: #fff;
-    text-shadow: 0px 0px 4px #171616;
-}
-
-.detail_title {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    z-index: 30;
+    color: #171616;
+    text-transform: uppercase;
 }
 
 .detail_title_pic {
-    width: 100%;
+    position: absolute;
+    top: 0;
     height: 100vh;
+    width: 100%;
+    z-index: 90;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-}
-
-.tween_detail_pic {
-    border-radius: 0 100% 100% 0;
 }
 
 .detail_title_text {
@@ -510,37 +528,6 @@ body {
     font-size: 8em;
     line-height: 0.5;
     color: rgba(0, 0, 0, 0.8);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
-}
-
-#design_title .detail_title_text {
-    left: 249px;
-    top: 411px;
-}
-
-#design_title .detail_title_pic {
-    background-image: url(../img/design/Screen%20Shot%202018-04-18%20at%208.42.50%20PM.png);
-}
-
-#education_title .detail_title_pic {
-    background-image: url(../img/education/cmu_logo.jpg);
-}
-
-#work_title .detail_title_pic {
-    
-}
-
-#more_title .detail_title_pic {
-    background-image: url(../img/photography/1.jpg);
-}
-
-#more_title .detail_title_text > h1 {
-    line-height: 0.7;
-    text-align: right;
-}
-
-#project_title .detail_title_pic {
-    
 }
 
 .arrow_button {
@@ -560,11 +547,10 @@ body {
 }
 
 #arrow_button_right {
-    opacity: 0;
     top: 450px;
+    right: -100px;
     width: 100px;
     height: 100px;
-    right: 100px;
     transform: rotate(180deg);
 }
 
@@ -588,36 +574,181 @@ body {
     height: 100vh;
     width: 100%;
     background-color: #fff;
+    z-index: 80;
 }
 
 .detail_main_circle {
     position: absolute;
-    left: 350px;
+    left: 500px;
     top: 450px;
     width: 400px;
     height: 400px;
     transform: translate(-50%, -50%);
     border-radius: 100%;
-    background-color: rgba(255, 184, 109, 1);
 }
 
 .detail_main_display {
     position: absolute;
     left: 400px;
     top: 0;
-    height: 100%;
+    height: 100vh;
     width: calc(100vw - 400px);
     background-color: #fff;
+    cursor: pointer;
 }
 
-.img_display {
+.display_pic {
+    position: absolute;
+    top: 0;
+    left: 1000px;
+    width: 900px;
+    height: 100vh;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.display_scroll_wrapper {
+    overflow-x: scroll;
+    margin-bottom: -10px;
+}
+
+.display_scroll_wrapper .display_item {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 100vh;
-    width: auto; 
+    width: 1000px;
+    margin-right: 200px;
+    padding-bottom: 10px;
+    display: inline-block;
+    
 }
 
-.display_pic img{
+.des_title > h1 {
+    font-family: 'Vesper Libre', sans-serif;
+    font-size: 6em;
+    line-height: 0.6;
+}
+
+.des_title > h2 {
+    font-family: 'Vesper Libre', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    font-size: 1em;
+    position: relative;
+}
+
+.display_pic img {
     height: 100vh;
+}
+
+.display_des {
+    position: absolute;
+}
+
+/*Customize Detail Style Sheet*/
+/**********************************Design.html***********************************/
+
+#design_title_pic {
+    background-image: url(../img/design/listen.png);
+}
+
+#design_title_text {
+    left: 249px;
+    top: 411px;
+}
+
+.design #detail_main_circle_1 {
+    background-color: rgba(255, 129, 98, 1);
+}
+
+.design #detail_main_circle_2 {
+    background-color: rgba(255, 123, 0, 1);
+    left: 700px;
+}
+
+.design #detail_main_circle_3 {
+    background-color: rgba(229, 63, 88, 1);
+    left: 700px;
+}
+
+.design #detail_main_circle_4 {
+    background-color: rgba(255, 182, 0, 1);
+    left: 700px;
+}
+
+.design #detail_main_circle_5 {
+    background-color: rgba(140, 61, 162, 1);
+    left: 700px;
+}
+
+.design #display_des_1 {
+    visibility: hidden;
+    top: 50%;
+    right: 250px; 
+    background-color: rgba(255, 129, 98, 1);
+}
+
+.design #display_des_2 {
+    visibility: hidden;
+    bottom: 100px;
+    left: -50px;
+    background-color: rgba(255, 123, 0, 1);
+}
+
+.design #display_des_3 {
+    visibility: hidden;
+    right: 100px;
+    top: 80px;
+    background-color: rgba(229, 63, 88, 1);
+}
+
+.design #display_des_4 {
+    visibility: hidden;
+    right: 200px;
+    bottom: 80px;
+    background-color: rgba(255, 182, 0, 1);
+}
+
+.design #display_des_5 {
+    visibility: hidden;
+    right: 300px;
+    bottom: 180px;
+    background-color: rgba(140, 61, 162, 1);
+}
+
+.design #display_des_1 .des_title > h2 {
+    left: 20px;
+}
+
+.design #display_item_2,
+.design #display_item_3 {
+    bottom: 10vh;
+}
+
+.design #display_item_2 > img,
+.design #display_item_3 > img {
+    height: 80vh;
+}
+
+/***********************************Education.html***********************************/
+#education_title_pic {
+    background-image: url(../img/education/cmu_logo.jpg);
+}
+
+/***********************************Work.html***********************************/
+#work_title_pic {
+    
+}
+
+/***********************************More.html***********************************/
+#more_title_pic {
+    background-image: url(../img/photography/1.jpg);
+}
+
+#more_title_text > h1 {
+    line-height: 0.7;
+    text-align: right;
+}
+
+/***********************************Project.html***********************************/
+#project_title_pic {
+    
 }

@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     Barba.Pjax.init();
     Barba.Prefetch.init();
     
+    //initialize customize button values
+    var curPage = window.location.href.split('/').pop();
+    if (curPage.includes('design')) {
+        var arrow_button_left = document.querySelector('#arrow_button_left');
+        arrow_button_left.value = "start";
+    }
+    
     document.addEventListener('click', function (e) {
         var etarget = e.target;
         //get current window location
@@ -14,41 +21,122 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (curPage.includes('design')) {
             if (etarget.classList.contains('arrow_button') ||
+                etarget.classList.contains('svg_icon_path') ||
                 etarget.classList.contains('svg_icon')) {
-                animateDetail(curPage);
+                if (etarget.id.includes('left')) {
+                    etarget = document.querySelector('#arrow_button_left');
+                }
+                else {
+                    etarget = document.querySelector('#arrow_button_right');
+                }
+                animateDetail(curPage, etarget);
             }
         }
         
         else {return; }
     });
     
-    var animateDetail = function (curPage) {
+    var animateDetail = function (curPage, etarget) {
         if (curPage.includes('design')) {
             var arrow_button_left = document.querySelector('#arrow_button_left');
-            var page_title = document.querySelector('.detail_title_text');
-            var title_text = page_title.querySelector('h1');
-            var title_pic = document.querySelector('.detail_title_pic');
             var arrow_button_right = document.querySelector('#arrow_button_right');
-            var color_circle = document.querySelector('.detail_main_circle');
-            var main_display = document.querySelector('.detail_main_display');
+            
+            var page_title = document.querySelector('.detail_title_text');
+            var title_text = page_title.querySelector('.detail_title_text h1');
+            var title_pic = document.querySelector('.detail_title_pic');
+            var color_circle = document.querySelectorAll('.detail_main_circle');
+            var display_pic = document.querySelector('.display_pic');
+            var display_des = document.querySelectorAll('.display_des');
             var detail_content = document.querySelector('.detail_content');
-            
-            //need generalization 
-            var prev_color = 'rgba(255, 123, 0, 1)';
-            var this_color = 'rgba(255, 129, 98)';
+            var scroll_wrapper = document.querySelector('.display_scroll_wrapper');
             
             
-            var tl = new TimelineMax();
-            tl.add("start");
-            tl.to(arrow_button_left, 0.2, {left: 350, top: 450, width: 100, height: 100}, "start")
-              .to(page_title, 0.2, {left: 150, top: 380}, "start")
-              .to(title_text, 0.2, {fontSize: '5em'}, "start")
-              .to(title_pic, 0.2, {width: 0, opacity: 0}, "start")
-              .from(arrow_button_right, 0.2, {left: '100vw'}, "start+=0.1")
-              .to(arrow_button_right, 0.2, {autoAlpha: 1}, "start+=0.1");
-            tl.add("fade");
-            tl.from(main_display, 0.3, {right: 0}, "fade")
-              .from(color_circle, 0.3, {opacity: 0.5, left: 500}, "fade");
+            if (etarget.id.includes('left')) {
+                /////////////////////left button click////////////////////////////////
+                if (arrow_button_left.value == "start") {
+                    var detailStart = new TimelineMax();
+                    detailStart.add("start");
+                    detailStart.to(arrow_button_left, 0.2, {left: 350, top: 450, width: 100, height: 100}, "start")
+                               .to(page_title, 0.2, {left: 150, top: 380}, "start")
+                               .to(title_text, 0.2, {fontSize: '5em'}, "start")
+                               .to(title_pic, 0.2, {left: '-100vw'}, "start")
+                               .to(display_pic, 0.2, {left: 0}, "start")
+                               .to(color_circle[0], 0.3, {autoAlpha: 1, left: 350, ease: Back.easeOut}, "start+=0.2")
+                               .to(arrow_button_right, 0.3, {autoAlpha: 1, right: 100, ease: Back.easeOut}, "start+=0.2")
+                               .to(display_des[0], 0.3, {autoAlpha: 1}, "start+=0.3")
+                    ;
+                    arrow_button_left.value = "back";
+                    arrow_button_right.value = "0";
+                    return;
+                }
+                else if (arrow_button_left.value == "back") {
+                    var detailEnd = new TimelineMax();
+                    detailEnd.add("start");
+                    detailEnd.to(display_des[0], 0.2, {autoAlpha: 0}, "start")
+                             .to(arrow_button_right, 0.3, {autoAlpha: 0, right: -100}, "start")
+                             .to(color_circle[0], 0.3, {autoAlpha: 0, left: 500}, "start")
+                             .to(display_pic, 0.3, {left: 1000}, "start+=0.1")
+                             .to(arrow_button_left, 0.2, {left: 550, top: 500, width: 150, height: 150}, "start+=0.1")
+                             .to(page_title, 0.2, {left: 249, top: 411}, "start+=0.2")
+                             .to(title_text, 0.2, {fontSize: '8em'}, "start+=0.2")
+                             .to(title_pic, 0.2, {left: 0}, "start+=0.2");
+                    arrow_button_left.value = "start";
+                    arrow_button_right.value = "0";
+                    return;
+                }
+                else {
+                    //index points to the current pic
+                    var index = parseInt(arrow_button_left.value, 10);
+                    var scroll_dist = (index-1)*(1205);
+                    
+                    if (index <= 0) {
+                        return;
+                    }
+                    
+                    var shiftPic = new TimelineMax();
+                    shiftPic.add("start");
+                    //fadeNewPicIn -> fadeOldCircleOut -> fadeNewColorIn
+                    shiftPic.set(color_circle[index-1], 0.2, {left: -500})
+                            .to(display_des[index], 0.2, {autoAlpha: 0})
+                            .to(scroll_wrapper, 0.3, {scrollTo: {x: scroll_dist}}, "start")
+                            .to(color_circle[index], 0.2, {autoAlpha: 0, left: 500}, "start+=0.1")
+                            .to(color_circle[index-1], 0.3, {autoAlpha: 1, left: 350, ease: Back.easeOut}, "start+=0.1")
+                            .to(display_des[index-1], 0.3, {autoAlpha: 1}, "start+=0.3");
+                    index = index - 1;
+                    arrow_button_right.value = index.toString();
+                    arrow_button_left.value = index.toString();
+                    
+                    if (arrow_button_left.value == 0){
+                        arrow_button_left.value == "back";
+                    }
+                }
+            }
+            else {
+                /////////////////////right button click////////////////////////////////
+                //index points to the current pic
+                var index = parseInt(arrow_button_right.value, 10);
+                var scroll_dist = (index+1)*(1205);
+                
+                console.log("index = ", index);
+                console.log("scroll_dist = ", scroll_dist);
+                console.log(display_pic.scrollLeft);
+                
+                if (index >= 5) {
+                    return;
+                }
+                var shiftPic = new TimelineMax();
+                shiftPic.add("start");
+                //fadeColorCircleOut -> fadeColorCircleIn -> fadeNewPicIn
+                shiftPic.to(color_circle[index], 0.2, {autoAlpha: 0, left: -500}, "start")
+                        .to(display_des[index], 0.2, {autoAlpha: 0}, "start")
+                        .set(color_circle[index], {left: 500})
+                        .to(color_circle[index+1], 0.3, {autoAlpha: 1, left: 350, ease: Back.easeOut}, "start+=0.1")
+                        .to(scroll_wrapper, 0.3, {scrollTo: {x: scroll_dist}}, "start+=0.1")
+                        .to(display_des[index+1], 0.3, {autoAlpha: 1}, "start+=0.3");
+                index = index + 1;
+                arrow_button_right.value = index.toString();
+                arrow_button_left.value = index.toString();
+            }
         }
     }
     
@@ -89,18 +177,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isAnimatingPreload || isAnimatingDetail) {
             return;
         }
-        
-        if (!etarget.classList.contains('mask') && 
-            !etarget.classList.contains('arrow_button')) {
-            return;
-        }
-        
         if (etarget.classList.contains('mask')){ 
             tweenMaskTo(etarget, 350);
         }
         else if (etarget.classList.contains('arrow_button') ||
+                 etarget.classList.contains('svg_icon_path') ||
                  etarget.classList.contains('svg_icon')) {
-            var arrow_path = etarget.querySelector('path');
+            if (etarget.id.includes('left')) {
+                etarget = document.querySelector('#arrow_button_left');
+            }
+            else {
+                etarget = document.querySelector('#arrow_button_right');
+            }
+            arrow_path = document.querySelector('.svg_icon_path');
             tweenButtonTo(etarget, arrow_path, '#fff', 1.1);
         }
         return;
@@ -111,18 +200,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isAnimatingPreload || isAnimatingDetail) {
             return;
         }
-        
-        if (!etarget.classList.contains('mask') && 
-            !etarget.classList.contains('arrow_button')) {
-            return;
-        }
-        
+       
         if (etarget.classList.contains('mask')) {
             tweenMaskTo(etarget, 300);
         }
         
-        if (etarget.classList.contains('arrow_button')) {
-            var arrow_path = etarget.querySelector('path');
+        if (etarget.classList.contains('arrow_button') ||
+            etarget.classList.contains('svg_icon_path') ||
+            etarget.classList.contains('svg_icon')) {
+            if (etarget.id.includes('left')) {
+                etarget = document.querySelector('#arrow_button_left');
+            }
+            else {
+                etarget = document.querySelector('#arrow_button_right');
+            }
+            arrow_path = document.querySelector('.svg_icon_path');
             tweenButtonTo(etarget, arrow_path, 'rgba(255, 255, 255, 0.9)', 1);
         }
         return;
@@ -228,10 +320,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
             
-            var home_button = this.oldContainer.querySelector('.home_logo_button');
-            var arrow_button = this.oldContainer.querySelector('.detail_button #arrow_button_left');
-            var arrow = this.oldContainer.querySelector('.detail_button #arrow_button_left path');
-            var header = this.oldContainer.querySelector('.detail_title');
             var title = this.newContainer.querySelector('.title_container .logo');
             var title_text = this.newContainer.querySelector('.title_container .logo_text');
             var sub_title = this.newContainer.querySelector('.title_container .logo_text h2');
@@ -249,18 +337,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             
             tl.add("start");
-            tl.to(header, 1, {opacity: 0}, "start+=0.2")
-              .to(home_button, 0.5, {opacity: 0, scale: 0}, "start")
-              .to(arrow, 0.5, {fill: "#171616"}, "start")
-              .to(this.oldContainer, 1, {opacity: 0}, "start+=0.3")
+            tl.to(this.oldContainer, 0.3, {opacity: 0}, "start+=0.3")
 //              .set(arrow_button, {transformOrigin: "50% 50% 0", scale:1}, "start")
 //              .to(arrow_button, 1, {scale: 20, opacity: 0})
-              .to(this.newContainer, 1, {opacity: 1});
-            
+              .to(this.newContainer, 0.3, {opacity: 1});
+        
             tl.add("next");
-            tl.from(title, 1, {opacity: 1}, "next")
-              .from(title_text, 1.5, {top: '100vh', opacity: 0, ease: Back.easeOut}, "next")
-              .from(sub_title, 1, {opacity: 0},"next+=1");
+            tl.from(title, 0.5, {opacity: 1}, "next")
+              .from(title_text, 0.5, {top: '100vh', opacity: 0}, "next")
+              .from(sub_title, 0.5, {opacity: 0},"next+=0.5");
             
             tl.add("final");
             tl.from(scroll_bar, 1, {opacity: 0, bottom: '-20vh'}, "final")
@@ -293,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var _this = this;
             var tl = new TimelineMax({
                 onComplete: function () {
-                    _this.newContainer.style.position = 'static';
+                    //_this.newContainer.style.position = 'static';
                     _this.done();
                     isAnimatingPreload = false;
                 }
@@ -326,6 +411,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 opacity: 0,
                 zIndex: 200
             });
+            
+            //initialize customize button values
+            if (this.getNewPageFile().includes('design')) {
+                var arrow_button_left = this.newContainer.querySelector('#arrow_button_left');
+                arrow_button_left.value = "start";
+            }
+            
             
             tl.add('fade');
             tl.to(mask, 1.5, {clipPath: 'circle(' + winWidth + 'px at ' + xCoord + '% ' + yCoord + 
