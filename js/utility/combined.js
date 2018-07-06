@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     var shiftPic = new TimelineMax();
                     shiftPic.add("start");
                     //fadeNewPicIn -> fadeOldCircleOut -> fadeNewColorIn
-                    shiftPic.set(color_circle[index-1], 0.2, {left: -500})
+                    shiftPic.set(color_circle[index-1], {left: -500})
                             .to(display_des[index], 0.2, {autoAlpha: 0})
                             .to(scroll_wrapper, 0.3, {scrollTo: {x: scroll_dist}}, "start")
                             .to(color_circle[index], 0.2, {autoAlpha: 0, left: 500}, "start+=0.1")
@@ -106,8 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     arrow_button_right.value = index.toString();
                     arrow_button_left.value = index.toString();
                     
+                    index = index - 1;
                     if (arrow_button_left.value == 0){
-                        arrow_button_left.value == "back";
+                        arrow_button_left.value = "back";
                     }
                 }
             }
@@ -117,11 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 var index = parseInt(arrow_button_right.value, 10);
                 var scroll_dist = (index+1)*(1205);
                 
-                console.log("index = ", index);
-                console.log("scroll_dist = ", scroll_dist);
-                console.log(display_pic.scrollLeft);
-                
-                if (index >= 5) {
+                if (index >= 4) {
                     return;
                 }
                 var shiftPic = new TimelineMax();
