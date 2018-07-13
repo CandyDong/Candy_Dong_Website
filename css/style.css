@@ -647,7 +647,8 @@ body {
 /**********************************Design.html***********************************/
 
 #design_title_pic {
-    background-image: url(../img/design/listen.png);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1)),
+                      url(../img/design/listen.png);
 }
 
 #design_title_text {
