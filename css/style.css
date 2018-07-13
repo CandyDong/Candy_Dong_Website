@@ -720,12 +720,14 @@ body {
 }
 
 .design #display_item_2,
-.design #display_item_3 {
+.design #display_item_3,
+.design #display_item_5 {
     bottom: 10vh;
 }
 
 .design #display_item_2 > img,
-.design #display_item_3 > img {
+.design #display_item_3 > img,
+.design #display_item_5 > img {
     height: 80vh;
 }
 
