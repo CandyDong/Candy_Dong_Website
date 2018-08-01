@@ -474,8 +474,7 @@ body {
     right: 0;
     width: calc(4.97159vw + 4.09px);
     height: 1px;
-    opacity: 0.4;
-    background-color: #171616; 
+    background-color: #fff; 
     -webkit-transform-origin: bottom left;
     transform-origin: bottom left;
     -webkit-transform: scaleX(0);
@@ -490,19 +489,32 @@ body {
     text-decoration: none;
     position: fixed;
     cursor: pointer;
-    left: 40px;
-    top: 40px;
+    left: 60px;
+    top: 60px;
+    transform: translate(-50%, -50%);
     z-index: 100;
 }
 
 .home_logo_button > div {
     font-family: "Dosis", sans-serif;
-    font-weight: 500;
+    font-weight: 200;
     font-size: 1.5em;
     text-align: left;
     line-height: 0.8;
-    color: #171616;
+    color: #fff;
     text-transform: uppercase;
+}
+
+.home_logo_circle {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 300px;
+    width: 300px;
+    background-color: #171616;
+    z-index: 99;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
 }
 
 .detail_title_pic {
@@ -675,7 +687,7 @@ body {
 }
 
 .design #detail_main_circle_5 {
-    background-color: rgba(140, 61, 162, 1);
+    background-color: rgba(207, 37, 255, 1);
     left: 700px;
 }
 
@@ -711,7 +723,7 @@ body {
     visibility: hidden;
     right: 300px;
     bottom: 180px;
-    background-color: rgba(140, 61, 162, 1);
+    background-color: rgba(207, 37, 255, 1);
 }
 
 .design #display_des_1 .des_title > h2 {

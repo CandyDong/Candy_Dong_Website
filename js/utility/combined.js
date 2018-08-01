@@ -50,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
             var detail_content = document.querySelector('.detail_content');
             var scroll_wrapper = document.querySelector('.display_scroll_wrapper');
             
+            console.log("left button value = ", arrow_button_left.value);
+            console.log("right button value = ", arrow_button_right.value);
             
             if (etarget.id.includes('left')) {
                 /////////////////////left button click////////////////////////////////
@@ -171,9 +173,11 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.addEventListener('mouseover', function(e) {
         var etarget = e.target;
+        
         if (isAnimatingPreload || isAnimatingDetail) {
             return;
         }
+        
         if (etarget.classList.contains('mask')){ 
             tweenMaskTo(etarget, 350);
         }
@@ -188,6 +192,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             arrow_path = document.querySelector('.svg_icon_path');
             tweenButtonTo(etarget, arrow_path, '#fff', 1.1);
+        }
+        else if (etarget.classList.contains('.home_logo_button') ||
+                 etarget.classList.contains('.home_logo_text')) {
+            
+            var etarget = document.querySelector('.home_logo_circle');
+            tweenHomeButtonTo(etarget, 330);
         }
         return;
     });
@@ -214,8 +224,18 @@ document.addEventListener("DOMContentLoaded", function () {
             arrow_path = document.querySelector('.svg_icon_path');
             tweenButtonTo(etarget, arrow_path, 'rgba(255, 255, 255, 0.9)', 1);
         }
+        else if (etarget.classList.contains('.home_logo_button') ||
+                 etarget.classList.contains('.home_logo_text')) {
+            var etarget = document.querySelector('.home_logo_circle');
+            tweenHomeButtonTo(etarget, 300);
+        }
         return;
     });
+    
+    var tweenHomeButtonTo = function(target, radius) {
+        console.log('calling tween home button to');
+        TweenLite.to(target, 0.3, {ease: Back.easeOut});
+    }
     
     var tweenMaskTo = function(target, radius) {
         var xCoord;
