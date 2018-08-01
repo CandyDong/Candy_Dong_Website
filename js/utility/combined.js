@@ -13,11 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var etarget = e.target;
         //get current window location
         var curPage = window.location.href.split('/').pop();
-        if (curPage.includes('preloader')) {
-            if (etarget.classList.contains('nav_toggle') || 
-                etarget.classList.contains('nav_toggle_icon')) {
-                toggleNavBar(etarget);
-            }
+        if (etarget.classList.contains('nav_toggle') || 
+            etarget.classList.contains('nav_toggle_icon')) {
+            toggleNavBar(etarget, curPage);
         }
         else if (curPage.includes('design')) {
             if (etarget.classList.contains('arrow_button') ||
@@ -140,32 +138,52 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
 //    navbar toggle handler
-    var toggleNavBar = function (target) {
+    var toggleNavBar = function (target, curPage) {
         var nav_toggle_button = document.querySelector('.nav_toggle');
-        var title_container = document.querySelector('.title_container');
-        var content_container = document.querySelector('.content_container');
         var nav_logo = document.querySelector('.nav_container .nav_header_top a');
         var nav_content = document.querySelector('.nav_header_mid');
         
-        if (nav_toggle_button.classList.contains('is_nav_open')) {
-            var togin = new TimelineMax();
-            togin.add('start');
-            togin.to(nav_toggle_button, 0.5, {className: "-=is_nav_open"}, 'start')
-              .to(title_container, 0.4, {className: "-=container_right_shift"}, 'start+=0.3')
-              .to(content_container, 0.4, {className: "-=container_right_shift"}, 'start+=0.3')
-              .to(nav_logo, 0.5, {className: "+=nav_close"}, 'start')
-              .to(nav_content, 0.5, {className: "+=nav_close"}, 'start');
-        } 
-        else {
-            var togout = new TimelineMax();
-            togout.add('start');
-            togout.to(nav_toggle_button, 0.5, {className: "+=is_nav_open"}, 'start')
-              .to(title_container, 0.4, {className: "+=container_right_shift"}, 'start+=0.3')
-              .to(content_container, 0.4, {className: "+=container_right_shift"}, 'start+=0.3')
-              .to(nav_logo, 0.5, {className: "-=nav_close"}, 'start')
-              .to(nav_content, 0.5, {className: "-=nav_close"}, 'start');
+        if (curPage.includes('preloader')) {
+            var title_container = document.querySelector('.title_container');
+            var content_container = document.querySelector('.content_container');
+            if (nav_toggle_button.classList.contains('is_nav_open')) {
+                var togin = new TimelineMax();
+                togin.add('start');
+                togin.to(nav_toggle_button, 0.5, {className: "-=is_nav_open"}, 'start')
+                  .to(title_container, 0.4, {className: "-=container_right_shift"}, 'start+=0.3')
+                  .to(content_container, 0.4, {className: "-=container_right_shift"}, 'start+=0.3')
+                  .to(nav_logo, 0.5, {className: "+=nav_close"}, 'start')
+                  .to(nav_content, 0.5, {className: "+=nav_close"}, 'start');
+            } 
+            else {
+                var togout = new TimelineMax();
+                togout.add('start');
+                togout.to(nav_toggle_button, 0.5, {className: "+=is_nav_open"}, 'start')
+                  .to(title_container, 0.4, {className: "+=container_right_shift"}, 'start+=0.3')
+                  .to(content_container, 0.4, {className: "+=container_right_shift"}, 'start+=0.3')
+                  .to(nav_logo, 0.5, {className: "-=nav_close"}, 'start')
+                  .to(nav_content, 0.5, {className: "-=nav_close"}, 'start');
+            }
         }
-        
+        else if (curPage.includes('design')) {
+            var container = document.querySelector('.design');
+            if (nav_toggle_button.classList.contains('is_nav_open')) {
+                var togin = new TimelineMax();
+                togin.add('start');
+                togin.to(nav_toggle_button, 0.5, {className: "-=is_nav_open"}, 'start')
+                  .to(container, 0.4, {className: "-=container_right_shift"}, 'start+=0.3')
+                  .to(nav_logo, 0.5, {className: "+=nav_close"}, 'start')
+                  .to(nav_content, 0.5, {className: "+=nav_close"}, 'start');
+            } 
+            else {
+                var togout = new TimelineMax();
+                togout.add('start');
+                togout.to(nav_toggle_button, 0.5, {className: "+=is_nav_open"}, 'start')
+                  .to(container, 0.4, {className: "+=container_right_shift"}, 'start+=0.3')
+                  .to(nav_logo, 0.5, {className: "-=nav_close"}, 'start')
+                  .to(nav_content, 0.5, {className: "-=nav_close"}, 'start');
+            }
+        }
     }
     
     var isAnimatingDetail = false;

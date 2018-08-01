@@ -659,7 +659,7 @@ body {
 /**********************************Design.html***********************************/
 
 #design_title_pic {
-    background-image: url(../img/design/listen.png);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1)),
 }
 
 #design_title_text {
@@ -731,12 +731,14 @@ body {
 }
 
 .design #display_item_2,
-.design #display_item_3 {
+.design #display_item_3,
+.design #display_item_5 {
     bottom: 10vh;
 }
 
 .design #display_item_2 > img,
-.design #display_item_3 > img {
+.design #display_item_3 > img,
+.design #display_item_5 > img {
     height: 80vh;
 }
 
