@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 394 394" style="enable-background:new 0 0 394 394;" xml:space="preserve">
+<defs>
+    <style type="text/css">
+        .st0 {
+            filter:url(#AI_GaussianBlur_4);
+        }
+        
+        .st1 {
+            fill:none;
+            stroke:#000000;
+            stroke-width:1;
+            stroke-miterlimit:10;
+        }
+        
+        .st2 {
+            fill:none;
+            stroke:#000000;
+            stroke-width:5;
+            stroke-miterlimit:10;
+        }
+
+        .st1,
+        .st2 {
+            stroke-dasharray: 1550;
+            stroke-dashoffset: 0;
+            -webkit-animation: dash 3s linear forwards;
+            -o-animation: dash 3s linear forwards;
+            -moz-animation: dash 3s linear forwards;
+            animation: dash 3s linear forwards;
+        }
+
+        @-webkit-keyframes dash {
+            from {
+                stroke-dashoffset: 1550;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</defs>
+
+<filter  id="AI_GaussianBlur_4">
+	<feGaussianBlur  stdDeviation="4"></feGaussianBlur>
+</filter>
+<g class="st0">
+	<rect x="5.9" y="5.9" class="st1" width="382.1" height="382.1"/>
+</g>
+<rect x="5.9" y="5.9" class="st2" width="382.1" height="382.1"/>
+</svg>
