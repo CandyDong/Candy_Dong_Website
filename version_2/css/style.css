@@ -3,7 +3,7 @@ body.index {
 	padding: 0;
 	height: 100vh;
 	width: 100vw;
-	background: radial-gradient(#b861ff, #652cb7);
+	background: radial-gradient(#9845b9, #4e1a79);
 	overflow-x: auto;
 	overflow-y: hidden;
 }
@@ -51,7 +51,7 @@ ul {
 	letter-spacing: 1.9px;
 	padding: 10px 15px;
 	font-weight: 400;
-	color: #261435;
+	color: #a897b5;
 }
 
 .index-wrap-round > span#title {
@@ -78,7 +78,7 @@ ul {
 	margin-left: 2px;
 	margin-right: 2px;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: all 0.2s ease;
 }
 
 .index-wrap-round > ul.navbar li:after {
@@ -89,7 +89,7 @@ ul {
 	transform: translateX(-50%) scaleX(0) translateZ(0);
 	width: 100%;
 	height: 1px;
-	background-color: #261435;
+	background-color: #fbf5ff;
 	transition: transform 0.2s ease;
 }
 
@@ -98,27 +98,16 @@ ul {
 }
 
 .index-wrap-round > ul.navbar li:hover {
-	background-color: #e783fb;
+	background-color: #a43d8c;
+	color: #fbf5ff;
 }
 
-.index-drop {
+.index-background {
 	z-index: 10;
 	position: absolute;
+	left: 50%;
+	top: 50%;
 	transform: translate(-50%, -50%);
-}
-
-#index-drop-1 {
-	top: 52%;
-	left: 45%;
-}
-
-#index-drop-2 {
-	top: 23%;
-	left: 35%;
-}
-
-#index-drop-2 > img {
-	width: 200px;
 }
 
 .index-poster {
@@ -152,61 +141,61 @@ ul {
 	font-family: 'Encode Sans Condensed', sans-serif;
 	font-size: calc(150px + 1vw);
 	font-weight: 900;
-	text-shadow: -10px 5px 15px #763ea4;
+	text-shadow: -10px 5px 15px #37164e;
 }
 
 .index-title > span#C {
 	top: 20%;
-	left: 25%;
-	color: #ae5bff;
+	left: 30%;
+	color: #551d8d;
 }
 .index-title > span#A {
 	top: 32%;
-	left: 25%;
-	color: #b365ff;
+	left: 30%;
+	color: #7128bb;
 }
 .index-title > span#N1 {
 	top: 44%;
-	left: 25%;
-	color: #b974ff;
+	left: 30%;
+	color: #8441d6;
 }
 .index-title > span#D1 {
 	top: 56%;
-	left: 25%;
-	color: #b56eff;
+	left: 30%;
+	color: #973fe6;
 }
 .index-title > span#Y {
 	top: 68%;
-	left: 25%;
-	color: #b05fff;
+	left: 30%;
+	color: #a355ea;
 }
 .index-title > span#D2 {
 	top: 40%;
-	left: 52%;
-	color: #bd8af1;
+	left: 65%;
+	color: #a53d8d;
 }
 .index-title > span#O {
 	top: 52%;
-	left: 52%;
-	color: #ce75ff;
+	left: 65%;;
+	color: #a4386d;
 }
 .index-title > span#N2 {
 	top: 64%;
-	left: 52%;
-	color: #e783fb;
+	left: 65%;
+	color: #c64271;
 }
 .index-title > span#G {
 	top: 76%;
-	left: 52%;
-	color: #e876ff;
+	left: 65%;
+	color: #8f3168;
 }
 .index-title > span#dot {
 	top: 88%;
-	left: 68%;
+	left: 80%;
 	font-size: calc(30px + 1vw);
 }
 .index-title > span#dot > i {
-	color: #f57dff;
+	color: #63226b;
 }
 
 .index-title > span.scroll-down {
@@ -215,5 +204,5 @@ ul {
 	font-size: calc(50px + 1vw);
 }
 .index-title > span.scroll-down > i {
-	color: #e465ff;
+	color: #9011e6;
 }

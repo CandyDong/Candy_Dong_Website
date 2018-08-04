@@ -11,7 +11,7 @@ var index_main = {
 			TweenMax.to(this, 0.3, {color: '#bb48d2'});
 		});
 		this.scroll_down_btn.mouseleave(function () {
-			TweenMax.to(this, 0.3, {color: '#e783fb'});
+			TweenMax.to(this, 0.3, {color: '#9011e6'});
 		});
 	},
 	
