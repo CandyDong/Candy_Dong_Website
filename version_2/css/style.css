@@ -34,7 +34,7 @@ ul.navbar {
 	margin: 0;
 	font-weight: 400;
 	color: #a897b5;
-	top: calc(609.23px / 2);
+	top: calc(609.23px / 2 + 80px);
 	left: calc(-609.23px / 2);
 	white-space:  nowrap;
 	transform-origin: center;
@@ -59,7 +59,7 @@ ul.navbar li:after {
 	transform: translateX(-50%) scaleX(0) translateZ(0);
 	width: 100%;
 	height: 1px;
-	background-color: #fbf5ff;
+	background-color: #de4199;
 	transition: transform 0.2s ease;
 }
 
@@ -68,8 +68,7 @@ ul.navbar li:hover:after {
 }
 
 ul.navbar li:hover {
-	background-color: #a43d8c;
-	color: #fbf5ff;
+	color: #de4199;
 }
 
 .display {
@@ -95,7 +94,7 @@ ul.navbar li:hover {
 	position: relative;
 	width: 100px;
 	height: 150px;
-	box-shadow: -18px 5px 10px rgba(40, 5, 78, 0.62);
+	box-shadow: -5px 5px 4px rgba(57, 48, 68, 0.46);
 	overflow: hidden;
 }
 
@@ -113,15 +112,40 @@ ul.navbar li:hover {
 	text-align: left;
 }
 
-.display .thumbnail .title > span,
+.display .thumbnail .title > span {
+	height: auto;
+	color: #440161;
+	font-family: 'Fira Sans Condensed', sans-serif;
+	font-size: calc(12px + 0.1vw);
+	font-weight: 300;
+	letter-spacing: 1.5px;
+	text-shadow: -5px 5px 4px rgba(57, 48, 68, 0.46);
+}
+
+.catalog {
+	padding-top: 10px;
+}
+
 .catalog > p.title,
 .catalog .table > p.entry {
-	height: auto;
-	color: #b0a9b3;
+	color: #000000;
 	font-family: 'Fira Sans Condensed', sans-serif;
-	font-size: 12px;
+	font-size: calc(12px + 0.1vw);
 	letter-spacing: 1.5px;
-	text-shadow: -18px 5px 4px rgba(40, 5, 78, 0.62);
+}
+
+.catalog > p.title {
+	font-weight: 400;
+}
+
+.catalog .table > p.entry {
+	font-weight: 300;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+
+.catalog .table > p.entry:hover {
+	color: #ff008f;
 }
 
 /************************************general******************************/
@@ -130,7 +154,7 @@ ul.navbar li:hover {
 body.index {
 	height: 100vh;
 	width: 100vw;
-	background: radial-gradient(#9845b9, #4e1a79);
+	background: #f9f9f9;;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
@@ -213,53 +237,53 @@ body.index {
 	font-family: 'Encode Sans Condensed', sans-serif;
 	font-size: calc(150px + 1vw);
 	font-weight: 900;
-	text-shadow: -10px 5px 15px #37164e;
+	text-shadow: -10px 5px 15px rgba(57, 48, 68, 0.72);
 }
 
 .index-title > span#C {
 	top: 20%;
 	left: 30%;
-	color: #9e0ff7;
+	color: #ca9be1;
 }
 .index-title > span#A {
 	top: 32%;
 	left: 30%;
-	color: #8f35ea;
+	color: #c99eeb;
 }
 .index-title > span#N1 {
 	top: 44%;
 	left: 30%;
-	color: #a760ff;
+	color: #b488ea;
 }
 .index-title > span#D1 {
 	top: 56%;
 	left: 30%;
-	color: #b45dea;
+	color: #c7a0f7;
 }
 .index-title > span#Y {
 	top: 68%;
 	left: 30%;
-	color: #c76dec;
+	color: #d1b4f5;
 }
 .index-title > span#D2 {
 	top: 40%;
 	left: 65%;
-	color: #a53d8d;
+	color: #ffb6d3;
 }
 .index-title > span#O {
 	top: 52%;
 	left: 65%;;
-	color: #a4386d;
+	color: #efa5cc;
 }
 .index-title > span#N2 {
 	top: 64%;
 	left: 65%;
-	color: #c64271;
+	color: #dc96ab;
 }
 .index-title > span#G {
 	top: 76%;
 	left: 65%;
-	color: #8f3168;
+	color: #b67e99;
 }
 .index-title > span#dot {
 	top: 88%;
@@ -267,7 +291,7 @@ body.index {
 	font-size: calc(30px + 1vw);
 }
 .index-title > span#dot > i {
-	color: #63226b;
+	color: #976c87;
 }
 
 .index-title > span.scroll-down {
@@ -276,12 +300,15 @@ body.index {
 	font-size: calc(50px + 1vw);
 }
 .index-title > span.scroll-down > i {
-	color: #e28df7;
+	color: #c4879d;
 }
 
 /************************************index******************************/
 
 /************************************design******************************/
+body.design {
+	background-color: #f9f9f9;
+}
 .design-background {
 	position: absolute;
 	background-color: #FFF;
@@ -291,7 +318,6 @@ body.index {
 
 .design-content-wrapper {
 	width: 100%;
-	background-color: #4e1a79;
 }
 
 .design-content-wrapper .main-content {
@@ -303,4 +329,16 @@ body.index {
 	padding-right: 30px;
 }
 
+.design svg.select-stroke {
+	position: absolute;
+}
+
+.design svg.select-stroke path {
+	fill:none;
+	stroke:#ED1E79;
+	stroke-width:0.5;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:1;
+}
 /************************************design******************************/
