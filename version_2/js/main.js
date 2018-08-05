@@ -12,18 +12,21 @@ var index_main = {
 		this.poster_chars = $('.index-poster .index-title > span');
 		this.candy_chars = this.poster_chars.slice(0, 5);
 		this.dong_chars = this.poster_chars.slice(5, 9);
+		this.chars = this.poster_chars.slice(0, 9);
 		this.dot = this.poster_chars[9];
 	},
 	
 	scroll_down_init: function () {
-		
+		var _this = this;
 		this.scroll_down_btn.hover(function () {
 			$(this).css('cursor', 'pointer');
+			TweenMax.to(_this.chars, 0.3, {textShadow: '-2px 20px 15px #37164e'});
 			TweenMax.to(this, 0.3, {color: '#bb48d2'});
 		});
 		
 		this.scroll_down_btn.mouseleave(function () {
-			TweenMax.to(this, 0.3, {color: '#9011e6'});
+			TweenMax.to(this, 0.3, {color: '#e28df7'});
+			TweenMax.to(_this.chars, 0.3, {textShadow: '-10px 5px 15px #37164e'});
 		});
 		
 		this.scroll_down_btn.on("click", ()=>{
