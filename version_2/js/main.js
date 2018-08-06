@@ -1,7 +1,7 @@
 var index = {
 	init: function () {
-		this.vars();
-		this.begin_anim();
+//		this.vars();
+//		this.begin_anim();
 	},
 	
 	vars: function () {
