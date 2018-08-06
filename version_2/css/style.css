@@ -25,6 +25,11 @@ body {
 	padding: 0;
 }
 
+.barba-container {
+	height: 100%;
+	width: 100%;
+}
+
 .nav-bar-container {
 	position: relative;
 	z-index: 1000;
@@ -290,9 +295,10 @@ body.index {
 /************************************index******************************/
 
 /************************************design******************************/
-.design-background {
+.transit {
 	position: absolute;
-	background-color: #FFF;
+	left: -100vw;
+	top: 0;
 	height: 100vh;
 	width: 100%;
 }

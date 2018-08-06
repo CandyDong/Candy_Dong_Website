@@ -90,6 +90,7 @@ var design = {
 var nav_anim = {
 	init: function () {
 		this.vars();
+		this.barba_init();
 		this.handle_transition_init();
 	},
 	
@@ -101,14 +102,15 @@ var nav_anim = {
 		this.nav_tech = $('.navbar li#tech');
 	},
 	
+	barba_init: function () {
+		Barba.Pjax.init();
+  		Barba.Prefetch.init();
+	},
+	
 	handle_transition_init: function () {
 		this.design_transition = Barba.BaseTransition.extend({
 			start: function () {
 				this.newContainerLoading.then(this.design_display.bind(this));
-			},
-			
-			getNewPageFile: function () {
-				return Barba.HistoryManager.currentStatus().url.split('/').pop();
 			},
 			
 			design_display: function () {
@@ -119,10 +121,34 @@ var nav_anim = {
 						_this.done();
 					}
 				});
+				
+				TweenMax.set(this.newContainer, {
+					position: 'fixed',
+					visibility: 'visible',
+					top: 0,
+					right: 0,
+					bottom: 0,
+					left: 0,
+					opacity: 0,
+					zIndex: 500
+				});
+				
+				var transit_1 = $.parseHTML('<div class="transit"></div>');
+				this.newContainer.prepend(transit_1);
+				TweenMax.set(transit_1, {
+					backgroundColor: 'purple',
+					zIndex: 100
+				});
+				
+				tl.add('transit');
+				tl.to(transit_1, 0.5, {left: 0, ease: Power4.easeOut}, "transit");
+				tl.to(this.newContainer, 0.5, {opacity: 1}, "transit+=1");
 			}
 			
 		});
+		
+		Barba.Pjax.getTransition = function () {
+			return this.design_transition;
+		};
 	}
-	
-	
 };
