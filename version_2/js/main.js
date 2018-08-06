@@ -86,14 +86,21 @@ var design = {
 		this.path = document.querySelector('svg.select-stroke path');
 		this.path_length = this.path.getTotalLength();
 		
-		var entry_offset_top = target.offset().top;
-		var entry_offset_left = target.offset().left;
-		var entry_length = (target.width() > 270) ? 220 : target.width();
+		var entry_width = target.children('span').width();
+		var entry_height = target.children('span').height();
 		
-		$(svg).css("top", `${entry_offset_top}px`);
-		$(svg).css("left", `${entry_offset_left}px`);
-		$(svg).css("width", `${entry_length}px`);
-		$(svg).css("transform", "translateY(-50%)");
+		var svg_width = Math.max(120, entry_width+40);
+		$(svg).css("width", `${svg_width}px`);
+		
+		var svg_height = $(svg).height();
+		
+		var entry_offset_top = target.children('span').offset().top;
+		var entry_offset_left = target.children('span').offset().left;
+		var svg_offset_top = entry_offset_top+(entry_height-svg_height)/2;
+		var svg_offset_left = entry_offset_left+(entry_width-svg_width)/2;
+		
+		$(svg).css("top", `${svg_offset_top}px`);
+		$(svg).css("left", `${svg_offset_left}px`);
 		
 		this.path.style.strokeDasharray = `${this.path_length} ${this.path_length}`;
 		this.path.style.strokeDashoffset = this.path_length;
