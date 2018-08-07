@@ -1,7 +1,6 @@
 var index = {
 	init: function () {
 		this.vars();
-//		this.begin_anim();
 	},
 	
 	vars: function () {
@@ -133,7 +132,7 @@ var nav_anim = {
 	init: function () {
 		this.vars();
 		this.barba_init();
-		this.handle_transition_init();
+		this.transition_init();
 	},
 	
 	vars: function () {
@@ -142,6 +141,7 @@ var nav_anim = {
 		this.nav_education = $('.navbar li#education');
 		this.nav_resume = $('.navbar li#resume');
 		this.nav_tech = $('.navbar li#tech');
+		this.nav_home = $('.navbar li#home');
 	},
 	
 	barba_init: function () {
@@ -149,7 +149,9 @@ var nav_anim = {
   		Barba.Prefetch.init();
 	},
 	
-	handle_transition_init: function () {
+	transition_init: function () {
+		var _this = this;
+		
 		this.design_transition = Barba.BaseTransition.extend({
 			start: function () {
 				this.newContainerLoading.then(this.design_display.bind(this));
@@ -172,91 +174,18 @@ var nav_anim = {
 					bottom: 0,
 					left: 0,
 					opacity: 0,
-					zIndex: 500
-				});
-				
-				var transit_1 = $.parseHTML('<div class="transit"></div>');
-				this.newContainer.prepend(transit_1);
-				TweenMax.set(transit_1, {
-					backgroundColor: 'purple',
 					zIndex: 100
 				});
 				
 				tl.add('transit');
-				tl.to(transit_1, 0.5, {left: 0, ease: Power4.easeOut}, "transit");
-				tl.to(this.newContainer, 0.5, {opacity: 1}, "transit+=1");
+				tl.to(this.newContainer, 0.5, {opacity: 1}, 'transit+=0.4');
+				
 			}
-			
 		});
 		
 		Barba.Pjax.getTransition = function () {
-			return this.design_transition;
+			return _this.design_transition;
 		};
 	}
 };
 
-var nav_anim = {
-	init: function () {
-		this.vars();
-		this.barba_init();
-		this.handle_transition_init();
-	},
-	
-	vars: function () {
-		this.nav_design = $('.navbar li#design');
-		this.nav_work = $('.navbar li#work');
-		this.nav_education = $('.navbar li#education');
-		this.nav_resume = $('.navbar li#resume');
-		this.nav_tech = $('.navbar li#tech');
-	},
-	
-	barba_init: function () {
-		Barba.Pjax.init();
-  		Barba.Prefetch.init();
-	},
-	
-	handle_transition_init: function () {
-		this.design_transition = Barba.BaseTransition.extend({
-			start: function () {
-				this.newContainerLoading.then(this.design_display.bind(this));
-			},
-			
-			design_display: function () {
-				var _this = this;
-				var tl = new TimelineMax({
-					onComplete: function () {
-						_this.newContainer.style.position = 'static';
-						_this.done();
-					}
-				});
-				
-				TweenMax.set(this.newContainer, {
-					position: 'fixed',
-					visibility: 'visible',
-					top: 0,
-					right: 0,
-					bottom: 0,
-					left: 0,
-					opacity: 0,
-					zIndex: 500
-				});
-				
-				var transit_1 = $.parseHTML('<div class="transit"></div>');
-				this.newContainer.prepend(transit_1);
-				TweenMax.set(transit_1, {
-					backgroundColor: 'purple',
-					zIndex: 100
-				});
-				
-				tl.add('transit');
-				tl.to(transit_1, 0.5, {left: 0, ease: Power4.easeOut}, "transit");
-				tl.to(this.newContainer, 0.5, {opacity: 1}, "transit+=1");
-			}
-			
-		});
-		
-		Barba.Pjax.getTransition = function () {
-			return this.design_transition;
-		};
-	}
-};
