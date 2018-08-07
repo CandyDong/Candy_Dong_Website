@@ -97,13 +97,11 @@ var design = {
 	},
 	
 	thumbnail_up: function (item) {
-		TweenMax.to($('.pic', item), 0.3, {boxShadow: '-13px 15px 8px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
-		TweenMax.to($('span', item), 0.3, {textShadow: '-13px 15px 8px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
+		TweenMax.to($('.pic', item), 0.3, {left: '5px', top: '-5px', boxShadow: '-13px 15px 8px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
 	},
 	
 	thumbnail_down: function (item) {
-		TweenMax.to($('.pic', item), 0.3, {boxShadow: '-5px 5px 4px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
-		TweenMax.to($('span', item), 0.3, {textShadow: '-5px 5px 4px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
+		TweenMax.to($('.pic', item), 0.3, {left: 0, top: 0, boxShadow: '-5px 5px 4px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
 	}
 };
 
