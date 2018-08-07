@@ -30,6 +30,16 @@ body {
 	width: 100%;
 }
 
+.box {
+	position: absolute;
+	right: -100vw;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: #ac8bd0;
+	z-index: 500;
+}
+
 .nav-bar-container {
 	position: absolute;
 	top: 0;
@@ -74,11 +84,24 @@ ul.nav-bar li:after {
 	transition: transform 0.2s ease;
 }
 
+ul.nav-bar li.on:after {
+	position: absolute;
+	content: "";
+	bottom: -3px;
+	left: 50%;
+	transform: translateX(-50%) scaleX(1) translateZ(0);
+	width: 100%;
+	height: 1px;
+	background-color: #de4199;
+	transition: transform 0.2s ease;
+}
+
 ul.nav-bar li:hover:after {
 	transform: translateX(-50%) scaleX(1) translateZ(0); 
 }
 
-ul.nav-bar li:hover a {
+ul.nav-bar li:hover a,
+ul.nav-bar li.on a {
 	color: #de4199;
 }
 
@@ -162,15 +185,10 @@ ul.nav-bar li:hover a {
 /************************************general******************************/
 
 /************************************index******************************/
-body.index {
-	height: 100vh;
-	width: 100vw;
-}
-
 .index-container {
 	position: relative;
-	width: 100%;
-	height: 100%;
+	height: 100vh;
+	width: 100vw;
 	min-width: 840px;
 	min-height: 660px;
 	overflow: auto;
@@ -294,13 +312,6 @@ body.index {
 /************************************index******************************/
 
 /************************************design******************************/
-.transit {
-	position: absolute;
-	right: 100vw;
-	top: 0;
-	height: 100vh;
-	width: 100%;
-}
 
 .design-content-wrapper {
 	width: 100%;
@@ -312,11 +323,11 @@ body.index {
 	padding: 100px;
 }
 
-.design svg.select-stroke {
+.design-content-wrapper svg.select-stroke {
 	position: absolute;
 }
 
-.design svg.select-stroke path {
+.design-content-wrapper svg.select-stroke path {
 	fill:none;
 	stroke:#ED1E79;
 	stroke-width:0.5;

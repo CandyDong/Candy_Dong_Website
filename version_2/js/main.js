@@ -1,24 +1,3 @@
-var index = {
-	init: function () {
-		this.vars();
-	},
-	
-	vars: function () {
-		this.poster_chars = $('.index-poster .index-title > span');
-		this.candy_chars = this.poster_chars.slice(0, 5);
-		this.dong_chars = this.poster_chars.slice(5, 9);
-		this.dot = this.poster_chars[9];
-	},
-	
-	begin_anim: function () {
-		var tl = new TimelineMax();
-		tl.add("start");
-		tl.from(this.candy_chars, 0.5, {top: '10%', ease: Back.easeOut}, "start")
-		  .from(this.dong_chars, 0.5, {top: '30%', autoAlpha: 0, ease: Back.easeOut}, "start+=0.2")
-		  .from(this.dot, 0.5, {top: '50%', autoAlpha: 0, ease: Back.easeOut}, "start+=0.4");
-	}
-};
-
 var design = {
 	init: function () {
 		this.vars();
@@ -76,7 +55,8 @@ var design = {
 	
 	stroke_init: function (target) {
 		var svg = $.parseHTML('<svg class="select-stroke" viewBox="0 0 100 30"><path d="M13.7,12.6C17.6,10,26.9,4.3,41.5,2c14-2.2,25.1,0,30.1,1.1c1.9,0.4,26.9,5.8,26.5,12.5c-0.3,5.1-15.6,8.4-25.4,10.5c-10.5,2.2-29.2,4.9-50.9,0.4c-9.6-2-18.3-3.8-19.7-8c-1.6-5,7.9-12,23.8-17.4"/></svg>');
-		$('body').prepend(svg);
+		
+		$('.design-content-wrapper').prepend(svg);
 		this.path = document.querySelector('svg.select-stroke path');
 		this.path_length = this.path.getTotalLength();
 		
@@ -127,21 +107,10 @@ var design = {
 	}
 };
 
-
-var nav_anim = {
+var barba = {
 	init: function () {
-		this.vars();
 		this.barba_init();
 		this.transition_init();
-	},
-	
-	vars: function () {
-		this.nav_design = $('.navbar li#design');
-		this.nav_work = $('.navbar li#work');
-		this.nav_education = $('.navbar li#education');
-		this.nav_resume = $('.navbar li#resume');
-		this.nav_tech = $('.navbar li#tech');
-		this.nav_home = $('.navbar li#home');
 	},
 	
 	barba_init: function () {
@@ -177,9 +146,20 @@ var nav_anim = {
 					zIndex: 100
 				});
 				
-				tl.add('transit');
-				tl.to(this.newContainer, 0.5, {opacity: 1}, 'transit+=0.4');
+				var box_1 = $('.transit-wrapper .box');
+				var content = $('.design-content-wrapper');
+				TweenMax.set(content, {autoAlpha: 0});
 				
+				tl.add('transit');
+				
+				tl.to(this.newContainer, 0.1, {opacity: 1});
+				tl.to(box_1, 1, {autoAlpha: 1, right: 0, ease: Power4.easeOut});
+				tl.to(this.oldContainer, 0.3, {autoAlpha: 0});
+				tl.to(box_1, 1, {autoAlpha: 0, ease: Power4.easeIn});
+				tl.to(content, 1, {autoAlpha: 1});
+				
+				window.design.init();
+				window.nav.init();
 			}
 		});
 		
@@ -188,4 +168,39 @@ var nav_anim = {
 		};
 	}
 };
+
+var nav = {
+	init: function () {
+		this.vars();
+		this.nav_highlight();
+	},
+	
+	vars: function () {
+		this.nav_design = $('.nav-bar li#design');
+		this.nav_work = $('.nav-bar li#work');
+		this.nav_education = $('.nav-bar li#education');
+		this.nav_resume = $('.nav-bar li#resume');
+		this.nav_tech = $('.nav-bar li#tech');
+		this.nav_home = $('.nav-bar li#home');
+		
+		this.nav_url_dic = {
+			'index': this.nav_home,
+			'design': this.nav_design,
+			'work': this.nav_work,
+			'education':this.nav_education,
+			'resume': this.nav_resume,
+			'tech': this.nav_tech
+		}
+	},
+	
+	get_cur_page: function () {
+		return Barba.HistoryManager.currentStatus().url.split('/').pop().replace('.html', '');	
+	},
+	
+	nav_highlight: function () {
+		var cur_page = this.get_cur_page();
+		this.nav_url_dic[cur_page].addClass('on');
+	}
+};
+
 
