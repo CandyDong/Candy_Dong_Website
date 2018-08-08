@@ -32,7 +32,7 @@ body {
 
 .box {
 	position: absolute;
-	right: -100vw;
+	right: 100vw;
 	top: 0;
 	height: 100vh;
 	width: 100%;
@@ -312,9 +312,9 @@ ul.nav-bar li.on a {
 /************************************index******************************/
 
 /************************************design******************************/
-
 .design-content-wrapper {
 	width: 100%;
+	min-width: 787px;
 	background-color: #f9f9f9;
 }
 
@@ -336,3 +336,19 @@ ul.nav-bar li.on a {
 	stroke-miterlimit:1;
 }
 /************************************design******************************/
+
+/*********************************design_details****************************/
+.details .project-wrapper {
+	position: relative;
+	height: 1500px;
+	width: 100%;
+}
+
+.details .project-wrapper .project {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 1000px;
+}
+/*********************************design_details****************************/

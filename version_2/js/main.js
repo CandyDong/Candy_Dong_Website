@@ -128,36 +128,48 @@ var barba = {
 				var _this = this;
 				var tl = new TimelineMax({
 					onComplete: function () {
-						_this.newContainer.style.position = 'static';
+						_this.newContainer.style.position = 'relative';
+						_this.newContainer.style.minWidth = '787px';
 						_this.done();
 					}
 				});
 				
+				var old_nav_bar = this.oldContainer.querySelector('.nav-bar');
+				var box_1 = this.newContainer.querySelector('.transit-wrapper .box');
+				var new_wrapper = this.newContainer.querySelector('.design-content-wrapper');
+				var new_content = this.newContainer.querySelector('.main-content');
+				var old_wrapper = this.oldContainer.querySelector('.index-container');
+				
 				TweenMax.set(this.newContainer, {
 					position: 'fixed',
-					visibility: 'visible',
+					autoAlpha: 1,
 					top: 0,
 					right: 0,
 					bottom: 0,
 					left: 0,
-					opacity: 0,
 					zIndex: 100
 				});
-				
-				var box_1 = $('.transit-wrapper .box');
-				var content = $('.design-content-wrapper');
-				TweenMax.set(content, {autoAlpha: 0});
+				TweenMax.set(new_content, {opacity: 0});
+				TweenMax.set(new_wrapper, {
+					position: 'relative',
+					top: '100vh',
+					opacity: 0,
+					zIndex: 500
+				});
 				
 				tl.add('transit');
+				tl.to(box_1, 0.8, {autoAlpha: 1, right: 0, ease: Power4.easeOut}, 'transit');
+				tl.to(old_nav_bar, 0.5, {opacity: 0}, 'transit+=0.5');
+				tl.set(old_wrapper, {opacity: 0}, 'transit+=1');
+				tl.set(new_wrapper, {transform: 'scaleX(0.001)'}, 'transit+=1');
+				tl.to(new_wrapper, 0.5, {autoAlpha: 1, top: 0, ease: Power4.easeOut}, 'transit+=1');
+				tl.to(new_wrapper, 0.8, {transform: 'scaleX(1)', ease: Power4.easeOut});
+				tl.set(new_wrapper, {position: 'static', zIndex: 0});
+				tl.set(box_1, {autoAlpha: 0});
+				tl.to(new_content, 1, {opacity: 1});
 				
-				tl.to(this.newContainer, 0.1, {opacity: 1});
-				tl.to(box_1, 1, {autoAlpha: 1, right: 0, ease: Power4.easeOut});
-				tl.to(this.oldContainer, 0.3, {autoAlpha: 0});
-				tl.to(box_1, 1, {autoAlpha: 0, ease: Power4.easeIn});
-				tl.to(content, 1, {autoAlpha: 1});
-				
-				window.design.init();
 				window.nav.init();
+				window.design.init();
 			}
 		});
 		
