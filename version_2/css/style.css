@@ -340,15 +340,38 @@ ul.nav-bar li.on a {
 /*********************************design_details****************************/
 .details .project-wrapper {
 	position: relative;
-	height: 1500px;
+	height: 900px;
 	width: 100%;
+	border: solid 1px red;
 }
 
-.details .project-wrapper .project {
+#project-wrapper-2 .env {
+	height: 500px;
+	width: 100%;
+	background: linear-gradient(#ba8386, #1c202f);
+}
+
+#project-wrapper-2 .project-pic > img {
+	width: 600px;
+	box-shadow: -5px -5px 5px #1c202f;
+}
+
+.project-wrapper .project {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	width: 1000px;
+}
+
+.project .project-pic > img {
+	width: 100%;
+}
+
+.project .project-intro {
+	font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.project .project-intro .title {
+	
 }
 /*********************************design_details****************************/
