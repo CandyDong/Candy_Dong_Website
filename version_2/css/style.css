@@ -21,6 +21,8 @@ ul {
 }
 
 body {
+	min-width: 787px;
+	position: relative;
 	margin: 0;
 	padding: 0;
 }
@@ -342,36 +344,52 @@ ul.nav-bar li.on a {
 	position: relative;
 	height: 900px;
 	width: 100%;
+	min-width: 787px;
 	border: solid 1px red;
 }
 
-#project-wrapper-2 .env {
-	height: 500px;
-	width: 100%;
-	background: linear-gradient(#ba8386, #1c202f);
-}
-
-#project-wrapper-2 .project-pic > img {
-	width: 600px;
-	box-shadow: -5px -5px 5px #1c202f;
-}
-
-.project-wrapper .project {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.project .project-pic > img {
-	width: 100%;
+.project-wrapper .project .project-pic > img {
+	display: block;
+	margin: 0 auto;
 }
 
 .project .project-intro {
 	font-family: 'Fira Sans Condensed', sans-serif;
+	color: black;
+}
+
+.project .project-intro span {
+	display: block;
 }
 
 .project .project-intro .title {
-	
+	font-size: 30px;
+	font-weight: 600;
 }
+
+.project .project-intro .intro {
+	font-size: 15px;
+}
+
+#project-wrapper-2 .env {
+	height: 50%;
+	width: 100%;
+	background-color: #ba8386;
+}
+
+#project-wrapper-2 .project {
+	position: absolute;
+	top: 25%;
+	left: 0;
+	right: 0;
+}
+
+#project-wrapper-2 .project-pic > img {
+	max-width: 800px;
+}
+
+#project-wrapper-2 .project-intro {
+	text-align: center;
+}
+
 /*********************************design_details****************************/
