@@ -66,7 +66,7 @@ ul.nav-bar li {
 
 ul.nav-bar li a {
 	text-decoration: none;
-	font-family: 'Fira Sans Condensed', sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: calc(13px + 0.1vw);
 	letter-spacing: 1.9px;
 	font-weight: 400;
@@ -151,7 +151,7 @@ ul.nav-bar li.on a {
 .display .thumbnail .title > span {
 	height: auto;
 	color: #440161;
-	font-family: 'Fira Sans Condensed', sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: calc(12px + 0.1vw);
 	font-weight: 300;
 	letter-spacing: 1.5px;
@@ -165,7 +165,7 @@ ul.nav-bar li.on a {
 .catalog > p.title,
 .catalog .table > p.entry {
 	color: #000000;
-	font-family: 'Fira Sans Condensed', sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: calc(12px + 0.1vw);
 	letter-spacing: 1.5px;
 }
@@ -208,7 +208,7 @@ ul.nav-bar li.on a {
 
 .index-bottom > span {
 	display: block;
-	font-family: 'Fira Sans Condensed', sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: calc(13px + 0.1vw);
 	letter-spacing: 1.9px;
 	font-weight: 300;
@@ -251,9 +251,9 @@ ul.nav-bar li.on a {
 .index-title > span {
 	position: absolute;
 	transform: translate(-50%, -50%);
-	font-family: 'Encode Sans Condensed', sans-serif;
+	font-family: 'Roboto Slab', serif;
 	font-size: calc(150px + 1vw);
-	font-weight: 900;
+	font-weight: 400;
 	text-shadow: -10px 5px 15px rgba(57, 48, 68, 0.72);
 }
 
@@ -342,7 +342,7 @@ ul.nav-bar li.on a {
 /*********************************design_details****************************/
 .details .project-wrapper {
 	position: relative;
-	height: 900px;
+	height: 700px;
 	width: 100%;
 	min-width: 787px;
 	border: solid 1px red;
@@ -354,42 +354,55 @@ ul.nav-bar li.on a {
 }
 
 .project .project-intro {
-	font-family: 'Fira Sans Condensed', sans-serif;
-	color: black;
+	padding-left: 8%;
+	font-family: 'Roboto Slab', serif;
+	color: #39252e;
 }
 
 .project .project-intro span {
 	display: block;
+	text-align: left;
+}
+
+.project .project-intro .number {
+	font-size: 100px;
+	font-weight: 400;
 }
 
 .project .project-intro .title {
-	font-size: 30px;
-	font-weight: 600;
+	font-size: 50px;
+	font-weight: 300;
 }
 
 .project .project-intro .intro {
+	color: #39252e;
+	font-weight: 300;
+}
+
+.project .project-intro .intro span:nth-child(1) {
+	font-size: 13px;
+}
+
+.project .project-intro .intro span:nth-child(2) {
 	font-size: 15px;
 }
 
-#project-wrapper-2 .env {
-	height: 50%;
-	width: 100%;
-	background-color: #ba8386;
+#project-wrapper-1 {
+	
 }
 
 #project-wrapper-2 .project {
-	position: absolute;
-	top: 25%;
-	left: 0;
-	right: 0;
 }
 
 #project-wrapper-2 .project-pic > img {
-	max-width: 800px;
+	max-width: 650px;
 }
 
 #project-wrapper-2 .project-intro {
 	text-align: center;
 }
+
+#project-wrapper-2 .project-intro 
+
 
 /*********************************design_details****************************/
