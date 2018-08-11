@@ -67,8 +67,8 @@ ul.nav-bar li {
 ul.nav-bar li a {
 	text-decoration: none;
 	font-family: 'Roboto Slab', serif;
-	font-size: calc(13px + 0.1vw);
-	letter-spacing: 1.9px;
+	font-size: 14px;
+	letter-spacing: 1px;
 	font-weight: 400;
 	color: #000;
 	transition: all 0.2s ease;
@@ -209,18 +209,29 @@ ul.nav-bar li.on a {
 .index-bottom > span {
 	display: block;
 	font-family: 'Roboto Slab', serif;
-	font-size: calc(13px + 0.1vw);
-	letter-spacing: 1.9px;
+	font-size: 14px;
 	font-weight: 300;
+	letter-spacing: 1px;
 	color: #000;
 }
 
 .index-background {
-	z-index: 10;
+/*	z-index: 10;*/
 	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+/*
+	background-image: url(../media/background.png);
+	background-position: center center;
+	background-size: cover;
+*/
+/*
 	left: 45%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+*/
 }
 
 .index-poster {
@@ -341,16 +352,17 @@ ul.nav-bar li.on a {
 
 /*********************************design_details****************************/
 .details .project-wrapper {
-	position: relative;
-	height: 700px;
 	width: 100%;
-	min-width: 787px;
-	border: solid 1px red;
+	min-width: 991px;
+	margin: 100px 0;
+/*	border: solid 1px red;*/
 }
 
 .project-wrapper .project .project-pic > img {
 	display: block;
 	margin: 0 auto;
+	max-height: 90vh;
+	max-width: 100%;
 }
 
 .project .project-intro {
@@ -360,49 +372,65 @@ ul.nav-bar li.on a {
 }
 
 .project .project-intro span {
+	position: relative;
 	display: block;
 	text-align: left;
+}
+
+.project .project-intro .number span:before {
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 300px;
+	background-color: #413c48;
+	top: 50%;
+	right: 100%;
 }
 
 .project .project-intro .number {
 	font-size: 100px;
 	font-weight: 400;
+	line-height: 1;
+	color: #413c48;
 }
 
-.project .project-intro .title {
-	font-size: 50px;
-	font-weight: 300;
+.project .project-intro .title span:nth-child(1) {
+	transform-origin: right top;
+	font-size: 45px;
+	font-weight: 400;
+	width: 100%;
+	line-height: 100%;
+	word-break: break-word;
+	color: #413c48;
+	text-transform: uppercase;
+}
+
+.project .project-intro .title span:nth-child(2) {
+	font-size: 13px;
+	padding-left: 5px;
+	color: #413c48;
+	font-weight: 400;
+	text-transform: capitalize;
 }
 
 .project .project-intro .intro {
-	color: #39252e;
+	color: #413c48;
 	font-weight: 300;
+	font-size: 14px;
+	border-top: solid 20px #413c48;
+	border-bottom: solid 20px #413c48;
+	margin: 10px 0;
+	padding: 4px;
 }
 
-.project .project-intro .intro span:nth-child(1) {
-	font-size: 13px;
+#project-wrapper-1 .project .project-intro .intro {
+	max-width: 244px;
 }
 
-.project .project-intro .intro span:nth-child(2) {
-	font-size: 15px;
+#project-wrapper-2 .project .project-intro .intro {
+	max-width: 284px;
 }
 
-#project-wrapper-1 {
-	
-}
-
-#project-wrapper-2 .project {
-}
-
-#project-wrapper-2 .project-pic > img {
-	max-width: 650px;
-}
-
-#project-wrapper-2 .project-intro {
-	text-align: center;
-}
-
-#project-wrapper-2 .project-intro 
 
 
 /*********************************design_details****************************/
