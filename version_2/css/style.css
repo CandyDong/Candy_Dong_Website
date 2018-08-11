@@ -215,23 +215,23 @@ ul.nav-bar li.on a {
 	color: #000;
 }
 
-.index-background {
-/*	z-index: 10;*/
+.particles-container {
 	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-/*
-	background-image: url(../media/background.png);
+	width: 400px;
+	height: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.particle-inner {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: pink;
+	background: url(../media/background.png);
 	background-position: center center;
 	background-size: cover;
-*/
-/*
-	left: 45%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-*/
 }
 
 .index-poster {
@@ -244,8 +244,7 @@ ul.nav-bar li.on a {
 	left: 50%;
 	z-index: 5;
 	-webkit-perspective: 500px; /* Safari 4-8  */
-    -webkit-perspective-origin: bottom right; /* Safari 4-8  */        
-    perspective: 500px;
+    -webkit-perspective-origin: bottom right; /* Safari 4-8  */   perspective: 500px;
     perspective-origin: bottom right;
 }
 
@@ -368,7 +367,6 @@ ul.nav-bar li.on a {
 .project .project-intro {
 	padding-left: 8%;
 	font-family: 'Roboto Slab', serif;
-	color: #39252e;
 }
 
 .project .project-intro span {
@@ -382,7 +380,7 @@ ul.nav-bar li.on a {
 	position: absolute;
 	height: 3px;
 	width: 300px;
-	background-color: #413c48;
+	background-color: #946668;
 	top: 50%;
 	right: 100%;
 }
@@ -391,7 +389,7 @@ ul.nav-bar li.on a {
 	font-size: 100px;
 	font-weight: 400;
 	line-height: 1;
-	color: #413c48;
+	color: #946668;
 }
 
 .project .project-intro .title span:nth-child(1) {
@@ -401,36 +399,27 @@ ul.nav-bar li.on a {
 	width: 100%;
 	line-height: 100%;
 	word-break: break-word;
-	color: #413c48;
+	color: #946668;
 	text-transform: uppercase;
 }
 
 .project .project-intro .title span:nth-child(2) {
 	font-size: 13px;
 	padding-left: 5px;
-	color: #413c48;
+	color: #946668;
 	font-weight: 400;
 	text-transform: capitalize;
 }
 
 .project .project-intro .intro {
-	color: #413c48;
+	color: #946668;
 	font-weight: 300;
 	font-size: 14px;
-	border-top: solid 20px #413c48;
-	border-bottom: solid 20px #413c48;
+	border-top: solid 20px #946668;
+	border-bottom: solid 20px #946668;
 	margin: 10px 0;
 	padding: 4px;
 }
-
-#project-wrapper-1 .project .project-intro .intro {
-	max-width: 244px;
-}
-
-#project-wrapper-2 .project .project-intro .intro {
-	max-width: 284px;
-}
-
 
 
 /*********************************design_details****************************/
