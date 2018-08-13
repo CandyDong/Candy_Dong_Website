@@ -199,7 +199,6 @@ var nav = {
 	vars: function () {
 		this.nav_design = $('.nav-bar li#design');
 		this.nav_work = $('.nav-bar li#work');
-		this.nav_education = $('.nav-bar li#education');
 		this.nav_resume = $('.nav-bar li#resume');
 		this.nav_tech = $('.nav-bar li#tech');
 		this.nav_home = $('.nav-bar li#home');
@@ -208,7 +207,6 @@ var nav = {
 			'index': this.nav_home,
 			'design': this.nav_design,
 			'work': this.nav_work,
-			'education':this.nav_education,
 			'resume': this.nav_resume,
 			'tech': this.nav_tech
 		}
