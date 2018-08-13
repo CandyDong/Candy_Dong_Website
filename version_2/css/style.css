@@ -328,7 +328,8 @@ body.index .nav-bar-container li#home a {
 	width: 100%;
 	min-width: 991px;
 	margin: 100px 0;
-/*	border: solid 1px red;*/
+	min-height: 90vh;
+	padding-top: 5vh;
 }
 
 .project-wrapper .project .project-pic > img {
@@ -340,7 +341,6 @@ body.index .nav-bar-container li#home a {
 
 .project .project-intro {
 	padding-left: 8%;
-	font-family: 'Roboto Slab', serif;
 }
 
 .project .project-intro span {
@@ -354,43 +354,48 @@ body.index .nav-bar-container li#home a {
 	position: absolute;
 	height: 3px;
 	width: 300px;
-	background-color: #946668;
+	background-color: #5f0d9f;
 	top: 50%;
 	right: 100%;
 }
 
 .project .project-intro .number {
 	font-size: 100px;
-	font-weight: 400;
 	line-height: 1;
-	color: #946668;
+	color: #5f0d9f;
+	font-family: 'Vesper Libre', serif;
+	font-weight: 900;
 }
 
 .project .project-intro .title span:nth-child(1) {
-	transform-origin: right top;
-	font-size: 45px;
-	font-weight: 400;
+	font-family: 'Vesper Libre', serif;
+	font-weight: 900;
+	font-size: calc(50px + 0.5vw);
 	width: 100%;
-	line-height: 100%;
+	line-height: 1;
 	word-break: break-word;
-	color: #946668;
+	color: #5f0d9f;
 	text-transform: uppercase;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }
 
 .project .project-intro .title span:nth-child(2) {
+	font-family: "Roboto Slab", sans-serif;
 	font-size: 13px;
 	padding-left: 5px;
-	color: #946668;
+	color: #5f0d9f;
 	font-weight: 400;
 	text-transform: capitalize;
 }
 
 .project .project-intro .intro {
-	color: #946668;
+	font-family: "Roboto Slab", sans-serif;
+	color: #5f0d9f;
 	font-weight: 300;
 	font-size: 14px;
-	border-top: solid 20px #946668;
-	border-bottom: solid 20px #946668;
 	margin: 10px 0;
 	padding: 4px;
 }
