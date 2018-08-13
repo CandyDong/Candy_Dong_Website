@@ -38,6 +38,8 @@ var design = {
 			var timer;
 			var item = _this.find_thumbnail(this);
 			
+			console.log(this);
+			
 			$(this).mouseover(function () {
 				_this.stroke_init($(this));
 				
@@ -154,6 +156,7 @@ var barba = {
 				
 				TweenMax.set(new_nav_bar, {opacity: 0});
 				TweenMax.set(new_wrapper, {opacity: 0});
+				
 //				TweenMax.set(new_wrapper, {
 //					position: 'relative',
 //					top: '100vh',
@@ -163,11 +166,11 @@ var barba = {
 				
 				tl.add('transit');
 				tl.to(old_nav_bar, 0.5, {autoAlpha: 0}, 'transit');
+				tl.to(old_wrapper, 1, {opacity: 0}, 'transit');
 				tl.to(new_nav_bar, 0.5, {opacity: 1}, 'transit');
-				tl.to(old_wrapper, 0.5, {opacity: 0}, 'transit');
-				tl.to(new_wrapper, 0.5, {opacity: 1}, 'transit+=0.7');
-				tl.set(this.oldContainer, {autoAlpha: 0}, 'transit+=0.5');
-				tl.set(this.newContainer, {autoAlpha: 1}, 'transit+=1.2');
+				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=1');
+				tl.set(this.oldContainer, {autoAlpha: 0}, 'transit+=1');
+				tl.set(this.newContainer, {autoAlpha: 1}, 'transit+=2');
 				
 //				tl.to(box_1, 0.8, {autoAlpha: 1, right: 0, ease: Power4.easeOut}, 'transit');
 //				tl.to(old_nav_bar, 0.5, {opacity: 0}, 'transit+=0.5');

@@ -163,24 +163,24 @@ ul.nav-bar li.on a {
 }
 
 .catalog > p.title,
-.catalog .table > p.entry {
+.catalog .table > a.entry {
+	display: block;
 	color: #000000;
+	cursor: pointer;
 	font-family: 'Roboto Slab', serif;
-	font-size: calc(12px + 0.1vw);
+	font-size: 12px;
+	font-weight: 300;
+	text-decoration: none;
 	letter-spacing: 1.5px;
+	padding: 8px 0;
+	transition: color 0.3s ease;
 }
 
 .catalog > p.title {
 	font-weight: 400;
 }
 
-.catalog .table > p.entry {
-	font-weight: 300;
-	cursor: pointer;
-	transition: color 0.3s ease;
-}
-
-.catalog .table > p.entry:hover {
+.catalog .table > a.entry:hover {
 	color: #ff008f;
 }
 
@@ -354,13 +354,14 @@ ul.nav-bar li.on a {
 	width: 100%;
 	min-width: 991px;
 	margin: 100px 0;
+	padding-top: 8vh;
 /*	border: solid 1px red;*/
 }
 
 .project-wrapper .project .project-pic > img {
 	display: block;
 	margin: 0 auto;
-	max-height: 90vh;
+	max-height: 85vh;
 	max-width: 100%;
 }
 
