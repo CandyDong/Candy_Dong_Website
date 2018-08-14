@@ -136,14 +136,12 @@ var barba = {
 					}
 				});
 				
-				
-				var old_nav_bar = this.oldContainer.querySelector('.nav-bar');
-				var new_nav_bar = this.newContainer.querySelector('.nav-bar');
-//				var box_1 = this.newContainer.querySelector('.transit-wrapper .box');
-				var new_wrapper = this.newContainer.querySelector('.design-content-wrapper');
-				var new_content = this.newContainer.querySelector('.main-content');
+				var old_nav_bar = this.oldContainer.querySelector('.nav-bar-container');
+				var new_nav_bar = this.newContainer.querySelector('.nav-bar-container');
 				var old_wrapper = this.oldContainer.querySelector('.index-container');
-//				
+				var new_wrapper = this.newContainer.querySelector('.design-content-wrapper');
+				
+		
 				TweenMax.set(this.newContainer, {
 					position: 'fixed',
 					top: 0,
@@ -151,36 +149,19 @@ var barba = {
 					bottom: 0,
 					left: 0,
 					autoAlpha: 1,
+					opacity: 0,
 					zIndex: 100
 				});
-				
 				TweenMax.set(new_nav_bar, {opacity: 0});
 				TweenMax.set(new_wrapper, {opacity: 0});
 				
-//				TweenMax.set(new_wrapper, {
-//					position: 'relative',
-//					top: '100vh',
-//					opacity: 0,
-//					zIndex: 500
-//				});
-				
 				tl.add('transit');
-				tl.to(old_nav_bar, 0.5, {autoAlpha: 0}, 'transit');
-				tl.to(old_wrapper, 1, {opacity: 0}, 'transit');
-				tl.to(new_nav_bar, 0.5, {opacity: 1}, 'transit');
-				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=1');
-				tl.set(this.oldContainer, {autoAlpha: 0}, 'transit+=1');
-				tl.set(this.newContainer, {autoAlpha: 1}, 'transit+=2');
-				
-//				tl.to(box_1, 0.8, {autoAlpha: 1, right: 0, ease: Power4.easeOut}, 'transit');
-//				tl.to(old_nav_bar, 0.5, {opacity: 0}, 'transit+=0.5');
-//				tl.set(old_wrapper, {opacity: 0}, 'transit+=1');
-//				tl.set(new_wrapper, {transform: 'scaleX(0.001)'}, 'transit+=1');
-//				tl.to(new_wrapper, 0.5, {autoAlpha: 1, top: 0, ease: Power4.easeOut}, 'transit+=1');
-//				tl.to(new_wrapper, 0.8, {transform: 'scaleX(1)', ease: Power4.easeOut});
-//				tl.set(new_wrapper, {position: 'static', zIndex: 0});
-//				tl.set(box_1, {autoAlpha: 0});
-//				tl.to(new_content, 1, {opacity: 1});
+				tl.to(old_wrapper, 0.5, {opacity: 0}, 'transit');
+				tl.to(old_nav_bar, 1, {top: '40px'}, 'transit');
+				tl.to(this.oldContainer, 0.5, {autoAlpha: 0}, 'transit+=1');
+				tl.to(new_nav_bar, 0.5, {opacity: 1}, 'transit+=1');
+				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=1.5');
+				tl.set(this.newContainer, {opacity: 1});
 				
 				window.nav.init();
 				window.design.init();
