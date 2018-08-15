@@ -239,10 +239,6 @@ svg path.gold-svg {
 /************************************index******************************/
 
 /************************************design_layout******************************/
-.design-content-wrapper {
-	width: 100%;
-	min-width: 787px;
-}
 
 .design-content-wrapper .main-content {
 	position: relative;
@@ -265,20 +261,24 @@ svg path.gold-svg {
 /************************************design_layout******************************/
 
 /*********************************design****************************/
+.design-content-wrapper {
+	width: 100%;
+}
+
 .project-wrapper {
 	position: relative;
 	width: 100%;
 	min-width: 991px;
 	margin: 100px 0;
-	min-height: 90vh;
-	padding-top: 5vh;
 }
 
 .project-wrapper .project .project-pic > img {
 	display: block;
 	margin: 0 auto;
-	max-height: 85vh;
-	max-width: 100%;
+}
+
+.project-wrapper .project .project-pic .design-mask {
+	position: absolute;
 }
 
 .project .project-intro {
@@ -341,6 +341,12 @@ svg path.gold-svg {
 	font-size: 14px;
 	margin: 10px 0;
 	padding: 4px;
+}
+
+.design-mask#art-1-mask-1 {
+	bottom: 0px;
+	left: -150px;
+	width: 380px;
 }
 
 
