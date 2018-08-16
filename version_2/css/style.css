@@ -238,28 +238,6 @@ svg path.gold-svg {
 
 /************************************index******************************/
 
-/************************************design_layout******************************/
-
-.design-content-wrapper .main-content {
-	position: relative;
-	height: auto;
-	padding: 100px;
-}
-
-.design-content-wrapper svg.select-stroke {
-	position: absolute;
-}
-
-.design-content-wrapper svg.select-stroke path {
-	fill: none;
-	stroke: #AD805B;
-	stroke-width: 0.5;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke-miterlimit: 1;
-}
-/************************************design_layout******************************/
-
 /*********************************design****************************/
 .design-content-wrapper {
 	width: 100%;
@@ -272,13 +250,18 @@ svg path.gold-svg {
 	margin: 100px 0;
 }
 
-.project-wrapper .project .project-pic > img {
+.project .project-pic {
+	min-height: 500px;
+}
+
+.project .project-pic > img {
 	display: block;
 	margin: 0 auto;
 }
 
-.project-wrapper .project .project-pic .design-mask {
+.project .project-pic .design-mask {
 	position: absolute;
+	cursor: pointer;
 }
 
 .project .project-intro {
@@ -343,9 +326,43 @@ svg path.gold-svg {
 	padding: 4px;
 }
 
+.project .project-anchor {
+}
+
+.project .project-anchor img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150px;
+	transform: translate(-50%, -50%);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.project .project-anchor .anchor-arrow {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	cursor: pointer;
+	transform: translate(-50%, -50%);
+}
+
+.project .project-anchor .anchor-arrow i {
+	font-size: 70px;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	opacity: 0.8;
+}
+
 .design-mask#art-1-mask-1 {
 	bottom: 0px;
-	left: -150px;
+	left: 0px;
 	width: 380px;
 }
 

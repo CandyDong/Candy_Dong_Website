@@ -1,110 +1,53 @@
 var design = {
 	init: function () {
 		this.vars();
-		this.entry_init();
+		this.anchor_init();
+		this.svg_init();
 	},
 	
 	vars: function () {
-		this.entry = $('.catalog .table .entry');
-		this.thumbnail = $('.thumbnail');
-		this.thumbnail_pic = $('.thumbnail .pic');
-		this.thumbnail_title = $('.thumbnail .title span');
+		this.anchor_arrow = $('.project-anchor .anchor-arrow');
+		this.svg_pic_mask = $('.project-pic svg.design-mask'); 
 	},
 	
-	find_thumbnail: function (entry) {
-		var entry_id = $(entry).text().slice(0, 2);
-		var content_id = $(entry).closest('div.catalog').attr('id').split('-').pop();
-		var work_id, item_id, item;
-		
-		this.thumbnail.each(function () {
-			work_id = $(this).closest('div.work').attr('id').split('-').pop();
-			if (work_id != content_id) {
-				return;
-			} 
-			item_id = $('span', $(this).children('.title')).text();
-			if (item_id == entry_id) {
-				item = $(this);
-				return false;
-			}
-		});
-		return item;
-	},
-	
-	entry_init: function () {
-		var _this = this;
-		var item = undefined; 
-		
-		_this.entry.each(function () {
-			var timer;
-			var item = _this.find_thumbnail(this);
+	anchor_init: function () {
+		this.anchor_arrow.each(function () {
+			var img = $(this).siblings('img');
+			var height = img.height();
+			var width = img.width();
 			
-			console.log(this);
+			$(this).css('height', height);
+			$(this).css('width', width);
+			TweenMax.set(img, {webkitFilter: 'brightness(100%)'});
+			TweenMax.set(this, {opacity: 0});
+			$(this).removeClass('hide');
 			
 			$(this).mouseover(function () {
-				_this.stroke_init($(this));
-				
-				timer = setTimeout(_this.draw_stroke.bind(_this), 200);
-				_this.thumbnail_up(item);
+				TweenMax.to(this, 0.8, {opacity: 1, ease: Power4.easeIn});
+				TweenMax.to(img, 0.3, {webkitFilter: 'brightness(60%)', ease: Power4.easeOut});
 			});
 			
 			$(this).mouseout(function () {
-				$('svg.select-stroke').remove();
-				clearTimeout(timer);
-				_this.thumbnail_down(item);
+				TweenMax.to(this, 0.8, {opacity: 0, ease: Power4.easeIn});
+				TweenMax.to(img, 0.3, {webkitFilter: 'brightness(100%)', ease: Power4.easeOut});
 			});
 		});
 	},
 	
-	stroke_init: function (target) {
-		var svg = $.parseHTML('<svg class="select-stroke" viewBox="0 0 100 30"><path d="M13.7,12.6C17.6,10,26.9,4.3,41.5,2c14-2.2,25.1,0,30.1,1.1c1.9,0.4,26.9,5.8,26.5,12.5c-0.3,5.1-15.6,8.4-25.4,10.5c-10.5,2.2-29.2,4.9-50.9,0.4c-9.6-2-18.3-3.8-19.7-8c-1.6-5,7.9-12,23.8-17.4"/></svg>');
-		
-		$('.design-content-wrapper').prepend(svg);
-		this.path = document.querySelector('svg.select-stroke path');
-		this.path_length = this.path.getTotalLength();
-		
-		var entry_width = target.children('span').width();
-		var entry_height = target.children('span').height();
-		
-		var svg_width = Math.max(120, entry_width+40);
-		$(svg).css("width", `${svg_width}px`);
-		
-		var svg_height = $(svg).height();
-		
-		var entry_offset_top = target.children('span').offset().top;
-		var entry_offset_left = target.children('span').offset().left;
-		var svg_offset_top = entry_offset_top+(entry_height-svg_height)/2;
-		var svg_offset_left = entry_offset_left+(entry_width-svg_width)/2;
-		
-		$(svg).css("top", `${svg_offset_top}px`);
-		$(svg).css("left", `${svg_offset_left}px`);
-		
-		this.path.style.strokeDasharray = `${this.path_length} ${this.path_length}`;
-		this.path.style.strokeDashoffset = this.path_length;
-		
-		this.current_frame = 0;
-		this.total_frames = 20;
-		this.handle = 0;
-	},
-	
-	draw_stroke: function () {
-		var progress = this.current_frame/this.total_frames;
-		if (progress > 1) {
-			window.cancelAnimationFrame(this.animation_id);
-		}
-		else {
-			this.current_frame++;
-			this.path.style.strokeDashoffset = Math.floor(this.path_length * (1-progress));
-			this.animation_id = window.requestAnimationFrame(this.draw_stroke.bind(this));
-		}
-	},
-	
-	thumbnail_up: function (item) {
-		TweenMax.to($('.pic', item), 0.3, {left: '5px', top: '-5px', boxShadow: '-13px 15px 8px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
-	},
-	
-	thumbnail_down: function (item) {
-		TweenMax.to($('.pic', item), 0.3, {left: 0, top: 0, boxShadow: '-5px 5px 4px rgba(57, 48, 68, 0.46)', ease: Power4.easeOut});
+	svg_init: function () {
+		this.svg_pic_mask.each(function () {
+			var path = $(this).find('path');
+			TweenMax.set(path, {scale: 0.6, transformOrigin:"50% 50%"});
+			
+			$(this).mouseover(function () {
+				TweenMax.to(path, 1, {scale: 1, ease: Power4.easeOut});
+			});
+			$(this).mouseout(function () {
+				TweenMax.to(path, 1, {scale: 0.6, ease: Power4.easeOut});
+			});
+		});
 	}
+
 };
 
 var barba = {
