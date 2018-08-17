@@ -37,13 +37,13 @@ var design = {
 	svg_init: function () {
 		this.svg_pic_mask.each(function () {
 			var path = $(this).find('path');
-			TweenMax.set(path, {scale: 0.6, transformOrigin:"50% 50%"});
+			TweenMax.set(path, {scale: 0.8, transformOrigin:"50% 50%"});
 			
 			$(this).mouseover(function () {
-				TweenMax.to(path, 1, {scale: 1, ease: Power4.easeOut});
+				TweenMax.to(path, 0.8, {scale: 1, ease: Power4.easeOut});
 			});
 			$(this).mouseout(function () {
-				TweenMax.to(path, 1, {scale: 0.6, ease: Power4.easeOut});
+				TweenMax.to(path, 0.8, {scale: 0.8, ease: Power4.easeOut});
 			});
 		});
 	}
@@ -83,7 +83,9 @@ var barba = {
 				var new_nav_bar = this.newContainer.querySelector('.nav-bar-container');
 				var old_wrapper = this.oldContainer.querySelector('.index-container');
 				var new_wrapper = this.newContainer.querySelector('.design-content-wrapper');
-				
+				var index_logo = this.oldContainer.querySelector('.index-logo');
+				var small_logo = this.newContainer.querySelector('.small-logo');
+				var index_logo_svg = $('svg', index_logo);
 		
 				TweenMax.set(this.newContainer, {
 					position: 'fixed',
@@ -92,19 +94,23 @@ var barba = {
 					bottom: 0,
 					left: 0,
 					autoAlpha: 1,
-					opacity: 0,
-					zIndex: 100
+					zIndex: 1000
 				});
 				TweenMax.set(new_nav_bar, {opacity: 0});
 				TweenMax.set(new_wrapper, {opacity: 0});
+				TweenMax.set(small_logo, {opacity: 0});
 				
 				tl.add('transit');
-				tl.to(old_wrapper, 0.5, {opacity: 0}, 'transit');
-				tl.to(old_nav_bar, 1, {top: '40px'}, 'transit');
-				tl.to(this.oldContainer, 0.5, {autoAlpha: 0}, 'transit+=1');
-				tl.to(new_nav_bar, 0.5, {opacity: 1}, 'transit+=1');
-				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=1.5');
-				tl.set(this.newContainer, {opacity: 1});
+				tl.to(old_wrapper, 0.5, {autoAlpha: 0}, 'transit');
+				tl.to(old_nav_bar, 1, {top: '40px'}, 'transit+=0.5');
+				tl.to(new_nav_bar, 1, {opacity: 1}, 'transit+=1.5');
+				tl.to(index_logo_svg, 1, {width: '350px', ease: Power4.easeOut}, 'transit+=1');
+				tl.to(index_logo, 1, {top: '80px', left: '220px', transform: 'none', ease: Power4.easeOut}, 'transit+=1');
+				tl.to(small_logo, 0.5, {opacity: 1}, 'transit+=2');
+				tl.to(this.oldContainer, 1, {autoAlpha: 0}, 'transit+=2.5');
+				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=3');
+				tl.set(this.newContainer, {zIndex: 0});
+				
 				
 				window.nav.init();
 				window.design.init();
@@ -145,7 +151,8 @@ var nav = {
 	
 	nav_highlight: function () {
 		var cur_page = this.get_cur_page();
-		this.nav_url_dic[cur_page].addClass('on');
+		TweenMax.to(this.nav_url_dic[cur_page], 1, {className: "+=on"});
+//		this.nav_url_dic[cur_page].addClass('on');
 	}
 };
 

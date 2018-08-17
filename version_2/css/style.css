@@ -230,10 +230,22 @@ svg path.gold-svg {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	z-index: 900;
 }
 
 .index-logo svg {
 	width: 550px;
+}
+
+.small-logo {
+	position: relative;
+	top: 80px;
+	left: 220px;
+	width: 350px;
+}
+
+.small-logo svg {
+	width: 350px;
 }
 
 /************************************index******************************/
