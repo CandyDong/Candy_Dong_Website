@@ -22,12 +22,12 @@ var design = {
 			TweenMax.set(this, {opacity: 0});
 			$(this).removeClass('hide');
 			
-			$(this).mouseover(function () {
+			$(this).mouseenter(function () {
 				TweenMax.to(this, 0.8, {opacity: 1, ease: Power4.easeIn});
-				TweenMax.to(img, 0.3, {webkitFilter: 'brightness(60%)', ease: Power4.easeOut});
+				TweenMax.to(img, 0.3, {webkitFilter: 'brightness(80%)', ease: Power4.easeOut});
 			});
 			
-			$(this).mouseout(function () {
+			$(this).mouseleave(function () {
 				TweenMax.to(this, 0.8, {opacity: 0, ease: Power4.easeIn});
 				TweenMax.to(img, 0.3, {webkitFilter: 'brightness(100%)', ease: Power4.easeOut});
 			});
@@ -105,7 +105,7 @@ var barba = {
 				tl.to(old_nav_bar, 1, {top: '40px'}, 'transit+=0.5');
 				tl.to(new_nav_bar, 1, {opacity: 1}, 'transit+=1.5');
 				tl.to(index_logo_svg, 1, {width: '350px', ease: Power4.easeOut}, 'transit+=1');
-				tl.to(index_logo, 1, {top: '80px', left: '220px', transform: 'none', ease: Power4.easeOut}, 'transit+=1');
+				tl.to(index_logo, 1, {top: '90px', left: '-200px', transform: 'none', ease: Power4.easeOut}, 'transit+=1');
 				tl.to(small_logo, 0.5, {opacity: 1}, 'transit+=2');
 				tl.to(this.oldContainer, 1, {autoAlpha: 0}, 'transit+=2.5');
 				tl.to(new_wrapper, 1, {opacity: 1}, 'transit+=3');
