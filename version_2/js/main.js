@@ -64,12 +64,12 @@ var barba = {
 	transition_init: function () {
 		var _this = this;
 		
-		this.design_transition = Barba.BaseTransition.extend({
+		this.transition = Barba.BaseTransition.extend({
 			start: function () {
-				this.newContainerLoading.then(this.design_display.bind(this));
+				this.newContainerLoading.then(this.display.bind(this));
 			},
 			
-			design_display: function () {
+			display: function () {
 				var _this = this;
 				var tl = new TimelineMax({
 					onComplete: function () {
@@ -82,7 +82,7 @@ var barba = {
 				var old_nav_bar = this.oldContainer.querySelector('.nav-bar-container');
 				var new_nav_bar = this.newContainer.querySelector('.nav-bar-container');
 				var old_wrapper = this.oldContainer.querySelector('.index-container');
-				var new_wrapper = this.newContainer.querySelector('.design-content-wrapper');
+				var new_wrapper = this.newContainer.querySelector('.content-wrapper');
 				var index_logo = this.oldContainer.querySelector('.index-logo');
 				var small_logo = this.newContainer.querySelector('.small-logo');
 				var index_logo_svg = $('svg', index_logo);
@@ -118,7 +118,7 @@ var barba = {
 		});
 		
 		Barba.Pjax.getTransition = function () {
-			return _this.design_transition;
+			return _this.transition;
 		};
 	}
 };

@@ -251,8 +251,65 @@ svg path.gold-svg {
 /************************************index******************************/
 
 /*********************************design****************************/
-.design-content-wrapper {
+.content-wrapper {
 	width: 100%;
+	margin-top: 100vh;
+}
+
+/*
+.thumbnail-wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	padding-left: 300px;
+}
+
+.thumbnail-wrapper .thumbnail {
+	position: relative;
+	top: 250px;
+}
+
+.thumbnail-wrapper .thumbnail-header span {
+	display: block;
+	font-family: 'Vesper Libre', serif;
+	font-size: 80px;
+	font-weight: 400;
+	line-height: 1;
+	color: #cac7c7;
+	white-space: nowrap;
+	margin: 20px 0;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: color 0.5s ease;
+}
+
+.thumbnail-wrapper .thumbnail-header:hover span {
+	color: #70667d;
+}
+
+.thumbnail-wrapper .thumbnail-item-wrapper span {
+	display: block;
+	font-family: "Roboto Slab", sans-serif;
+	font-size: 13px;
+	font-weight: 300;
+	color: #cac7c7;
+	letter-spacing: 2px;
+}
+*/
+
+.details-header {
+	margin-top: 100px;
+	padding: 0 40px;
+}
+
+.details-header span {
+	font-family: 'Vesper Libre', serif;
+	font-size: 80px;
+	font-weight: 400;
+	line-height: 1;
+	color: #5F0D9F;
+	text-shadow: -5px 4px #ad805b;
+	text-transform: uppercase;
 }
 
 .project-wrapper {
@@ -333,12 +390,19 @@ svg path.gold-svg {
 	font-family: "Roboto Slab", sans-serif;
 	color: #5f0d9f;
 	font-weight: 300;
-	font-size: 14px;
+	font-size: 13px;
 	margin: 10px 0;
 	padding: 4px;
 }
 
-.project .project-anchor {
+.project .project-intro .intro a {
+	text-decoration: none;
+	color: #AD805B;
+	transition: color 0.2s ease;
+}
+
+.project .project-intro .intro a:hover {
+	color: #de8947;
 }
 
 .project .project-anchor img {
@@ -370,6 +434,20 @@ svg path.gold-svg {
 	transform: translate(-50%, -50%);
 	color: #fff;
 	opacity: 0.8;
+}
+
+.project .project-pic-part img {
+	margin-top: 20px;
+}
+
+.project .project-pic-part span {
+	display: block;
+	word-break: break-word;
+	font-family: "Roboto Slab", sans-serif;
+	font-size: 13px;
+	font-weight: 300;
+	margin-top: 20px;
+	text-align: center;
 }
 
 /*********************************design****************************/
