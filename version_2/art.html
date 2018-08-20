@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+       <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400
+															|Vesper+Libre:900" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+      
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+              integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+		
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/jquery.gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/ScrollToPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+      
+		<script type="text/javascript" src="js/main.js"></script>
+		
+    </head>
+	<body id="barba-wrapper">
+		<div class="barba-container">
+			<div class="nav-bar-container" style="top: 40px;">
+				<ul class="nav-bar">
+					<li id="design">
+						<a href="design.html">-Design-</a>
+					</li>
+					<li id="art">
+						<a href="art.html">-Art.Work-</a>
+					</li>
+					<li id="tech">
+						<a href="tech.html">-Tech.Projects-</a>
+					</li>
+					<li id="resume">
+						<a href="#">-Resume-</a>
+					</li>
+					<li id="home">
+						<a href="index.html">-Home-</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="content-header">
+				<div class="small-logo">
+					<svg viewBox="0 0 100 100">
+						<path class="purple-svg" 
+							  d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+							C13.3,9,7.8,18.1,6.5,20.5z"/>
+						<path class="pink-svg" 
+							  d="M75.7,53.3c-9.3,3.5-9.7,19.2-9.7,20.1c0,2.4-0.2,11.8,6.3,17.8c6.6,6,17.5,6.1,23.1,0c4-4.3,4.4-10.7,4.5-12.3
+							c0.1-0.8,0.3-4.9-1.4-9.8c-0.5-1.3-2-5.5-5.7-9.3C91.6,58.5,83.6,50.3,75.7,53.3z"/>
+					</svg>
+				</div>
+				<div class="index-info">
+					<div class="avatar">
+						<img src="media/avatar.png">
+					</div>
+					<span>Carnegie.Mellon.University.<br>2020.Junior.<br>Eletrical.and.Computer.Engineering<br>Machine.Learning.</span>
+					<br><br><br>
+					<span><a href="https://www.linkedin.com/in/qingyi-dong/"><i class="fab fa-linkedin"></i></a></span>
+					<span><a href="https://www.facebook.com/profile.php?id=100009012323597"><i class="fab fa-facebook-square"></i></a></span>
+					<span><a href="https://www.behance.net/qingyid7852"><i class="fab fa-behance-square"></i></a></span>
+				</div>
+				
+<!--
+				<div class="mask-logo">
+					<div class="header-pic">
+						<img src="media/imagine.jpeg">
+					</div>
+					
+					<svg x="0px" y="0px" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
+						<defs>
+							<mask id="header-mask">
+								<rect x="0" y="0" width="1596" height="1000" fill="#FFF"></rect>
+								<path d="M967.8,100.1c-68.2-10.6-144.6,22-188.7,71.1c-93.9,104.6-39.3,282,16.5,371.4c33.6,53.8,70.7,80.8,81.4,88.2
+									c14.4,10,113.9,76.9,217,40.2c25.5-9.1,42.5-21.4,52-28.4c82.9-61,140.8-191.9,104-299.5c-12.9-37.6-47.4-73.5-116.5-145.2
+									c-26.6-27.6-52-50.8-88.9-70.1C1032.5,121.5,1002,105.5,967.8,100.1z"/>
+								<path d="M681.5,900c67.3-11.5,121.6-76.3,137.2-142.8c23.9-102.4-50.1-182-64.1-197.1c-16.1-17.4-98.3-105.9-184.5-75
+									c-54.5,19.5-89.2,79.2-91.4,127.9c-0.3,7.8,0.4,9.6,15.4,78.5c20.4,94,19.8,93.8,23,101.3c6.3,14.5,36.9,85,106.4,104.2C632.5,899.5,654.6,904.6,681.5,900z"/>
+								<path d="M860.1,708.7c-22,11.1-21.9,41.8-21.9,43.7c0.3,18.7,10.7,35.8,25.5,44.9c25.1,15.4,64.6,8.8,75.3-14.6
+									c10-21.8-9.5-48.5-24.3-60.7C910.8,718.9,883.8,696.7,860.1,708.7z"/>
+							</mask>
+						</defs>
+						<rect x="0" y="0" width="1596" height="1000" fill="#FFF" mask="url(#header-mask)"></rect>
+					</svg>
+				</div>
+-->
+				
+			</div>
+			
+			<div class="content-wrapper">
+				<a id="art-1"></a>
+				<div class="project-wrapper" id="art-wrapper-1">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>01.</span>
+							</div>
+							<div class="title">
+								<span>In My Imagination</span>
+								<span>paint tool sai.<br>2018.07.</span>
+							</div>
+							<div class="intro">
+								<span>Illustration for Tecent's new mobile game <strong>Free Imagination</strong>.</span>
+							</div>
+						</div>
+						<div class="project-pic col-6">
+							<svg id="art-1-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#e79999" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-1-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-1-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/imagine-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-1-img-1)" mask="url(#art-1-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-1-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-1-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/imagine-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-1-img-2)" mask="url(#art-1-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-1-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-1-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/imagine-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-1-img-3)" mask="url(#art-1-clip-3)"></rect>
+							</svg>
+
+						</div>
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/68736933/Free-Imagination" target="_blank">
+								<img src="media/imagine.jpeg">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<a id="art-2"></a>
+				<div class="project-wrapper" id="art-wrapper-2">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>02.</span>
+							</div>
+							<div class="title">
+								<span>Neon Book Store</span>
+								<span>paint tool sai.<br>2018.01</span>
+							</div>
+							<div class="intro">
+								<span>A bookstore in the 1980s. <br/>Created this for a friend's mobile game project prototype design.</span>
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-2-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#aa6c75" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-2-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-2-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/book_store-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-2-img-1)" mask="url(#art-2-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-2-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-2-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/book_store-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-2-img-2)" mask="url(#art-2-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-2-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-2-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/book_store-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-2-img-3)" mask="url(#art-2-clip-3)"></rect>
+							</svg>
+
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/62743145/BOOKSTORE" target="_blank">
+								<img src="media/book_store.JPG">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<a id="art-3"></a>
+				<div class="project-wrapper" id="art-wrapper-3">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>03.</span>
+							</div>
+							<div class="title">
+								<span>Ocean Eyes</span>
+								<span>paint tool sai.<br>2014.08</span>
+							</div>
+							<div class="intro">
+								The piece was created when I was still in high school, back to when I just bought myself my very firt Digital Drawing Pad from Wacom. I was trying out my favourite blue and orange combination on it.
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-3-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#f0d6b7" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-3-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-3-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/listen-1.png" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-3-img-1)" mask="url(#art-3-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-3-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-3-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/listen-2.png" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-3-img-2)" mask="url(#art-3-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-3-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-3-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/listen-3.png" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-3-img-3)" mask="url(#art-3-clip-3)"></rect>
+							</svg>
+
+						</div>
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/64613957/OCEAN-EYES" target="_blank">
+								<img src="media/listen.png">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<a id="art-4"></a>
+				<div class="project-wrapper" id="art-wrapper-4">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>04.</span>
+							</div>
+							<div class="title">
+								<span>The Last Time We Met</span>
+								<span>paint tool sai.<br>2017.07</span>
+							</div>
+							<div class="intro">
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-4-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#ebad62" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-4-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-4-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/in_the_1980s-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-4-img-1)" mask="url(#art-4-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-4-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-4-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/in_the_1980s-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-4-img-2)" mask="url(#art-4-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-4-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-4-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/in_the_1980s-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-4-img-3)" mask="url(#art-4-clip-3)"></rect>
+							</svg>
+
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/64614099/OLD-MOVIE" target="_blank">
+								<img src="media/in_the_1980s.JPG">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<a id="art-5"></a>
+				<div class="project-wrapper" id="art-wrapper-5">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>05.</span>
+							</div>
+							<div class="title">
+								<span>Missing Home</span>
+								<span>paint tool sai.<br>2015.08</span>
+							</div>
+							<div class="intro">
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-5-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#fde7c8" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-5-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-5-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/missing_home-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-5-img-1)" mask="url(#art-5-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-5-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-5-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/missing_home-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-5-img-2)" mask="url(#art-5-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-5-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-5-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/missing_home-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-5-img-3)" mask="url(#art-5-clip-3)"></rect>
+							</svg>
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/64614009/NOSTALGIA" target="_blank">
+								<img src="media/missing_home.png">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<a id="art-6"></a>
+				<div class="project-wrapper" id="art-wrapper-6">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>06.</span>
+							</div>
+							<div class="title">
+								<span>Truth in The Back of My Hand</span>
+								<span>paper.<br>2017.07</span>
+							</div>
+							<div class="intro">
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-6-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#5f0d9f" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-6-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-6-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/the_back_of_my_hand-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-6-img-1)" mask="url(#art-6-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-6-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-6-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/the_back_of_my_hand-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-6-img-2)" mask="url(#art-6-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-6-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-6-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/the_back_of_my_hand-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-6-img-3)" mask="url(#art-6-clip-3)"></rect>
+							</svg>
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/64614051/BACKSIDE-OF-MY-HAND" target="_blank">
+								<img src="media/the_back_of_my_hand.JPG">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<a id="art-7"></a>
+				<div class="project-wrapper" id="art-wrapper-7">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>07.</span>
+							</div>
+							<div class="title">
+								<span>Bruce as I remember</span>
+								<span>adobe photoshop.<br>2018.05</span>
+							</div>
+							<div class="intro">
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-7-shape-1" viewBox="0 0 100 100" width="500">
+								<path fill="#82678c" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-7-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-7-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/bruce-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-7-img-1)" mask="url(#art-7-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-7-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-7-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/bruce-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-7-img-2)" mask="url(#art-7-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-7-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-7-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/bruce-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-7-img-3)" mask="url(#art-7-clip-3)"></rect>
+							</svg>
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/69128307/Bruce" target="_blank">
+								<img src="media/bruce.jpg">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+
+				<a id="art-8"></a>
+				<div class="project-wrapper" id="art-wrapper-8">
+					<div class="project row">
+						<div class="project-intro col-4">
+							<div class="number">
+								<span>09.</span>
+							</div>
+							<div class="title">
+								<span>Smells Like Spring</span>
+								<span>paper.<br>2017.01</span>
+							</div>
+							<div class="intro">
+							</div>
+						</div>
+
+						<div class="project-pic col-6">
+							<svg id="art-8-shape-1" viewBox="0 0 100 100" width="500">
+								<path class="purple-svg" d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+									C13.3,9,7.8,18.1,6.5,20.5z"/>
+							</svg>
+							<svg class="design-mask" width="450" viewBox="0 0 100 100"  style="top:0; left: -20px;">
+								<defs>
+									<mask id="art-8-clip-1">
+										<path d="M6.5,20.5c-4.8,8.4-5.6,15.9-5.9,19.8C-0.2,47.4-1.3,59.4,5.7,69c5.2,7.1,9.2,5.3,20.6,16.5c6.6,6.5,6,7.9,10,10.4c8.7,5.4,20.5,4.8,28.8,1.8C86.5,90,91.1,64,91.8,60.2c0.9-4.9,3.3-18.9-4.5-32.9C74.5,4.3,40.6-6.6,21.7,4.2
+										C13.3,9,7.8,18.1,6.5,20.5z" fill="#FFF"/>
+									</mask>
+									<pattern id="art-8-img-1" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/smell-1.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-8-img-1)" mask="url(#art-8-clip-1)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="300" viewBox="0 0 100 100" style="top: 250px; left: 250px;">
+								<defs>
+									<mask id="art-8-clip-2">
+										<path d="M33.1,9.1C11.6,16,10.5,46.7,10.5,48.4c-0.1,4.7-0.5,23.2,14.7,34.8c15.4,11.8,40.5,12,53.7,0c9.2-8.4,10.3-20.9,10.5-24.1c0.1-1.6,0.7-9.6-3.2-19.1c-1.1-2.6-4.7-10.8-13.1-18.2C70.1,19.3,51.5,3.2,33.1,9.1z" fill="#fff"/>
+									</mask>
+									<pattern id="art-8-img-2" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/smell-2.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-8-img-2)" mask="url(#art-8-clip-2)"></rect>
+							</svg>
+
+							<svg class="design-mask" width="250" viewBox="0 0 100 100" style="top: 300px; left: 20px;">
+								<defs>
+									<mask id="art-8-clip-3">
+										<path d="M30.5,11C10.7,19.3,7.4,40.6,7.3,41.9C5.6,53.8,9.2,68.4,19,75.6c5,3.6,7.1,2,21,7.9c13.5,5.7,13.1,7.9,18.2,8.4c14.8,1.5,34.2-15.6,35-33.5c0.4-9.2-3.7-16.7-3.7-16.7c-2-3.6-3.6-4.7-8.8-11.2c-5.7-7.1-6.7-9.6-8.8-12C64.4,9.6,46.4,4.4,30.5,11z" fill="#fff"/>
+									</mask>
+									<pattern id="art-8-img-3" patternUnits="userSpaceOnUse" width="100" height="100">
+										<image xlink:href="media/smell-3.jpg" x="0" y="0" width="100" height="100" />
+									</pattern>
+								</defs>
+								<rect x="0" y="0" width="100" height="100" fill="url(#art-8-img-3)" mask="url(#art-8-clip-3)"></rect>
+							</svg>
+						</div>
+
+						<div class="project-anchor col-2">
+							<a href="https://www.behance.net/gallery/69113963/Smell" target="_blank">
+								<img src="media/smell.JPG">
+								<div class="anchor-arrow hide">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
